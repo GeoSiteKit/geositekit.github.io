@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GeoSiteKit rassemble et analyse les géodonnées nécessaires à la préparation des projets paysagers dans AutoCAD.">
-  <meta name="theme-color" content="#142a33">
+  <meta name="theme-color" content="#17233c">
   <meta property="og:title" content="GeoSiteKit - De la donnée au projet">
   <meta property="og:description" content="Comprendre un site et préparer une base de projet paysager à partir de géodonnées suisses.">
   <meta property="og:type" content="website">
@@ -19,7 +19,10 @@
   <header class="site-header" id="site-header">
     <div class="nav-shell">
       <a class="brand" href="#top" aria-label="GeoSiteKit, accueil">
-        <img src="assets/geositekit-mark-dark.png" alt="" width="42" height="42">
+        <span class="brand-mark" aria-hidden="true">
+          <img class="brand-mark-dark" src="assets/geositekit-mark-dark.png" alt="" width="44" height="44">
+          <img class="brand-mark-light" src="assets/geositekit-mark-light.png" alt="" width="44" height="44">
+        </span>
         <span>GeoSiteKit</span>
       </a>
 
@@ -30,7 +33,8 @@
       <nav class="primary-nav" id="primary-nav" aria-label="Navigation principale">
         <a href="#approche">Approche</a>
         <a href="#donnees">Données</a>
-        <a href="#analyse">Analyse</a>
+        <a href="#analyse">Analyses</a>
+        <a href="#guide">Mode d'emploi</a>
         <a class="nav-contact" href="mailto:contact@geositekit.ch">Contact</a>
       </nav>
     </div>
@@ -38,18 +42,30 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <img class="hero-media" src="assets/jonction-orthophoto.jpg" alt="Vue orthophotographique de la Jonction à Genève">
-      <div class="hero-shade"></div>
+      <img class="hero-media" src="assets/jonction-orthophoto.jpg" alt="Orthophoto de la Jonction à Genève">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-cad" aria-hidden="true">
+        <div class="hero-bbox">
+          <span class="bbox-label">Emprise d'étude</span>
+          <span class="bbox-corner bbox-corner-tl"></span>
+          <span class="bbox-corner bbox-corner-tr"></span>
+          <span class="bbox-corner bbox-corner-bl"></span>
+          <span class="bbox-corner bbox-corner-br"></span>
+          <span class="bbox-center"></span>
+        </div>
+      </div>
+
       <div class="hero-content">
         <p class="hero-kicker">Géodonnées suisses · Analyse de site · AutoCAD</p>
         <h1 id="hero-title">GeoSiteKit</h1>
         <p class="hero-tagline">De la donnée au projet</p>
         <p class="hero-copy">Une lecture claire du terrain pour préparer les premières décisions d'un projet paysager.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#approche">Découvrir l'approche</a>
+          <a class="button button-primary" href="#approche">Voir le fonctionnement</a>
           <a class="button button-ghost" href="mailto:contact@geositekit.ch">Nous contacter</a>
         </div>
       </div>
+
       <div class="hero-status" aria-label="Informations produit">
         <span>Application Windows</span>
         <span>Intégration AutoCAD</span>
@@ -57,74 +73,205 @@
       </div>
     </section>
 
-    <section class="intro section" id="approche">
-      <div class="section-shell intro-grid">
+    <section class="approach section" id="approche">
+      <div class="section-shell approach-grid reveal">
         <div>
           <p class="section-label">L'approche</p>
-          <h2>Le site avant le dessin</h2>
+          <h2>Le site avant le dessin.</h2>
         </div>
-        <div class="intro-copy">
-          <p>GeoSiteKit réunit les informations nécessaires pour lire un lieu avant d'en dessiner l'évolution. La parcelle devient le point de départ d'une base de travail cohérente, géoréférencée et directement exploitable.</p>
-          <p>L'interface reste simple : choisir le site, définir l'emprise, sélectionner les données utiles et les transmettre au dessin AutoCAD.</p>
+        <div class="approach-copy">
+          <p>GeoSiteKit réunit les informations nécessaires pour lire un lieu avant d'en dessiner l'évolution. La parcelle devient le point de départ d'une base cohérente, géoréférencée et directement exploitable.</p>
+          <p>L'interface conserve un parcours simple : situer le site, définir l'emprise, choisir les données utiles puis les transmettre au dessin AutoCAD.</p>
         </div>
       </div>
 
-      <div class="section-shell workflow" aria-label="Déroulement d'une préparation de site">
+      <div class="section-shell workflow reveal" aria-label="Déroulement d'une préparation de site">
         <article>
           <span class="step-number">01</span>
-          <h3>Situer</h3>
-          <p>Rechercher une commune et une parcelle, puis cadrer précisément la zone d'étude.</p>
+          <div>
+            <h3>Situer</h3>
+            <p>Rechercher une commune et une parcelle, puis cadrer précisément la zone d'étude.</p>
+          </div>
         </article>
         <article>
           <span class="step-number">02</span>
-          <h3>Comprendre</h3>
-          <p>Superposer les données du terrain, du cadastre, du paysage et du bâti.</p>
+          <div>
+            <h3>Comprendre</h3>
+            <p>Réunir le terrain, le cadastre, le paysage et le bâti dans une même lecture.</p>
+          </div>
         </article>
         <article>
           <span class="step-number">03</span>
-          <h3>Projeter</h3>
-          <p>Importer une base structurée dans AutoCAD et commencer l'avant-projet.</p>
+          <div>
+            <h3>Projeter</h3>
+            <p>Importer une base structurée dans AutoCAD et engager l'avant-projet.</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="data-section section" id="donnees">
+    <section class="layer-story" id="donnees" aria-labelledby="layer-title">
+      <div class="section-shell layer-intro reveal">
+        <p class="section-label">De la donnée au projet</p>
+        <h2 id="layer-title">Une lecture qui se construit couche après couche.</h2>
+        <p>Faites défiler la page : la scène traduit le passage progressif de l'orthophoto brute à une base de projet lisible.</p>
+      </div>
+
+      <div class="section-shell layer-layout">
+        <div class="layer-stage-wrap">
+          <div class="layer-stage" id="layer-stage" data-active="0" aria-label="Démonstration visuelle des couches GeoSiteKit">
+            <div class="map-toolbar" aria-hidden="true">
+              <span class="window-dot"></span>
+              <strong>Lecture du site</strong>
+              <span class="map-scale">1:1'000</span>
+            </div>
+
+            <div class="map-viewport">
+              <img class="map-base parallax-layer" data-depth="0.18" src="assets/jonction-orthophoto.jpg" alt="">
+              <div class="map-wash" aria-hidden="true"></div>
+
+              <svg class="map-overlay overlay-cadastre parallax-layer" data-depth="0.34" viewBox="0 0 900 620" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M58 78L236 92L304 184L278 318L108 336L46 236Z"/>
+                  <path d="M236 92L474 52L548 152L438 252L304 184Z"/>
+                  <path d="M548 152L826 122L858 288L690 350L438 252Z"/>
+                  <path d="M108 336L278 318L392 424L326 584L82 532Z"/>
+                  <path d="M278 318L438 252L690 350L626 518L392 424Z"/>
+                  <path d="M690 350L858 288L842 542L626 518Z"/>
+                  <rect x="344" y="124" width="122" height="74"/>
+                  <path d="M610 218H746V306H610Z"/>
+                  <path d="M168 410H278V486H168Z"/>
+                </g>
+              </svg>
+
+              <svg class="map-overlay overlay-relief parallax-layer" data-depth="0.58" viewBox="0 0 900 620" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M-34 480C132 360 226 562 398 430S680 302 940 392"/>
+                  <path d="M-26 526C140 406 246 604 414 476S694 348 938 442"/>
+                  <path d="M6 578C170 466 282 644 454 526S716 412 920 490"/>
+                  <path d="M30 420C176 310 270 490 420 372S682 250 892 332"/>
+                </g>
+              </svg>
+
+              <svg class="map-overlay overlay-trees parallax-layer" data-depth="0.72" viewBox="0 0 900 620" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="152" cy="156" r="18"/><path d="M134 156h36M152 138v36"/>
+                  <circle cx="202" cy="206" r="14"/><path d="M188 206h28M202 192v28"/>
+                  <circle cx="742" cy="434" r="20"/><path d="M722 434h40M742 414v40"/>
+                  <circle cx="784" cy="474" r="13"/><path d="M771 474h26M784 461v26"/>
+                  <circle cx="540" cy="470" r="16"/><path d="M524 470h32M540 454v32"/>
+                </g>
+              </svg>
+
+              <div class="map-analysis parallax-layer" data-depth="0.9" aria-hidden="true">
+                <span style="--x:10%;--y:16%;--w:22%;--h:25%;--tone:#98b93d"></span>
+                <span style="--x:34%;--y:12%;--w:26%;--h:32%;--tone:#f2c94c"></span>
+                <span style="--x:62%;--y:18%;--w:28%;--h:28%;--tone:#e8903d"></span>
+                <span style="--x:14%;--y:46%;--w:30%;--h:36%;--tone:#5ba8d1"></span>
+                <span style="--x:46%;--y:48%;--w:22%;--h:34%;--tone:#98b93d"></span>
+                <span style="--x:70%;--y:48%;--w:18%;--h:34%;--tone:#e85d4a"></span>
+              </div>
+
+              <div class="map-bbox" aria-hidden="true">
+                <span class="map-parcel"></span>
+                <span class="map-center"></span>
+                <small>150 m</small>
+              </div>
+
+              <div class="layer-legend" aria-hidden="true">
+                <span class="legend-item is-active" data-legend="0"><i></i>Orthophoto</span>
+                <span class="legend-item" data-legend="1"><i></i>Cadastre</span>
+                <span class="legend-item" data-legend="2"><i></i>Relief & végétation</span>
+                <span class="legend-item" data-legend="3"><i></i>Analyse</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="layer-steps">
+          <article class="layer-step is-active" data-step="0">
+            <span class="step-marker">01</span>
+            <p class="section-label">Observer</p>
+            <h3>L'orthophoto donne la réalité du lieu.</h3>
+            <p>Le contexte construit, végétal et territorial reste visible dans une emprise fidèle à celle qui sera importée.</p>
+          </article>
+          <article class="layer-step" data-step="1">
+            <span class="step-marker">02</span>
+            <p class="section-label">Structurer</p>
+            <h3>Le cadastre transforme l'image en base de dessin.</h3>
+            <p>Parcelles, bâtiments et géométries DXF donnent des repères précis et organisés par calques.</p>
+          </article>
+          <article class="layer-step" data-step="2">
+            <span class="step-marker">03</span>
+            <p class="section-label">Comprendre</p>
+            <h3>Le relief et les arbres révèlent le fonctionnement du terrain.</h3>
+            <p>Courbes de niveaux, altitudes, végétation et données 3D complètent la lecture du site existant.</p>
+          </article>
+          <article class="layer-step" data-step="3">
+            <span class="step-marker">04</span>
+            <p class="section-label">Analyser</p>
+            <h3>Les données deviennent des décisions de projet.</h3>
+            <p>Profils, ensoleillement et autres analyses produisent des représentations directement exploitables dans AutoCAD.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="modules section" aria-labelledby="modules-title">
       <div class="section-shell">
-        <div class="section-heading">
+        <div class="section-heading reveal">
           <div>
             <p class="section-label">Les données</p>
-            <h2>Une base de site réunie au même endroit</h2>
+            <h2 id="modules-title">Les outils essentiels réunis dans un même parcours.</h2>
           </div>
           <p>Les sources disponibles varient selon le territoire. GeoSiteKit organise leur accès et conserve une logique de calques adaptée au dessin.</p>
         </div>
 
         <div class="module-grid">
-          <article class="module-item">
+          <article class="module-item reveal">
+            <span class="module-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 6.5 8.5 4l7 3 5.5-2.5v13L15.5 20l-7-3L3 19.5z"/><path d="M8.5 4v13M15.5 7v13"/></svg>
+            </span>
             <span class="module-index">01</span>
             <h3>Plan cadastral</h3>
             <p>Une lecture immédiate du parcellaire et de son contexte.</p>
           </article>
-          <article class="module-item">
+          <article class="module-item reveal">
+            <span class="module-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 14 5-5 4 4 3-3 4 4"/></svg>
+            </span>
             <span class="module-index">02</span>
             <h3>Vecteurs DXF</h3>
             <p>Des géométries cadastrales structurées pour le dessin.</p>
           </article>
-          <article class="module-item">
+          <article class="module-item reveal">
+            <span class="module-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8" cy="10" r="1.5"/><path d="m4 17 5-5 3 3 3-3 5 5"/></svg>
+            </span>
             <span class="module-index">03</span>
             <h3>Orthophoto</h3>
             <p>Le terrain réel comme fond précis de compréhension.</p>
           </article>
-          <article class="module-item">
+          <article class="module-item reveal">
+            <span class="module-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 18c3-5 6-5 9 0s6 5 9 0"/><path d="M3 13c3-5 6-5 9 0s6 5 9 0"/><path d="M3 8c3-5 6-5 9 0s6 5 9 0"/></svg>
+            </span>
             <span class="module-index">04</span>
             <h3>Courbes de niveaux</h3>
             <p>Le relief lisible dès les premières esquisses.</p>
           </article>
-          <article class="module-item">
+          <article class="module-item reveal">
+            <span class="module-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21v-8"/><path d="M8 13a4 4 0 0 1 1-7.87A4 4 0 1 1 15 6a4 4 0 0 1 1 7.87Z"/></svg>
+            </span>
             <span class="module-index">05</span>
             <h3>Arbres 2D</h3>
             <p>La végétation existante intégrée à la base de projet.</p>
           </article>
-          <article class="module-item">
+          <article class="module-item reveal">
+            <span class="module-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
+            </span>
             <span class="module-index">06</span>
             <h3>Données 3D</h3>
             <p>Le bâti et le terrain pour approfondir la lecture du site.</p>
@@ -133,52 +280,65 @@
       </div>
     </section>
 
-    <section class="analysis-section section" id="analyse">
+    <section class="analysis section" id="analyse" aria-labelledby="analysis-title">
       <div class="section-shell analysis-grid">
-        <div class="analysis-mark" aria-hidden="true">
-          <img src="assets/geositekit-mark-dark.png" alt="" width="480" height="480">
-        </div>
-        <div class="analysis-copy">
-          <p class="section-label section-label-light">L'analyse</p>
-          <h2>Lire davantage que le plan</h2>
+        <div class="analysis-copy reveal">
+          <p class="section-label section-label-light">Les analyses</p>
+          <h2 id="analysis-title">Lire davantage que le plan.</h2>
           <p>Au-delà de l'import, GeoSiteKit aide à interpréter le terrain. Les analyses transforment les géodonnées en représentations utiles à la conception paysagère.</p>
-          <div class="analysis-list">
-            <div>
-              <strong>Relief</strong>
-              <span>Altitudes, courbes et compréhension topographique.</span>
-            </div>
-            <div>
-              <strong>Ensoleillement</strong>
-              <span>Heatmaps et ombres portées à l'échelle du site.</span>
-            </div>
-            <div>
-              <strong>Contexte</strong>
-              <span>Parcelle, bâti, végétation et orthophoto dans une même emprise.</span>
-            </div>
+        </div>
+
+        <div class="analysis-board reveal" aria-label="Exemples d'analyses GeoSiteKit">
+          <div class="analysis-row">
+            <span>01</span>
+            <div><strong>Relief</strong><small>Altitudes, courbes et profils topographiques.</small></div>
+            <i class="analysis-line analysis-line-profile" aria-hidden="true"></i>
+          </div>
+          <div class="analysis-row">
+            <span>02</span>
+            <div><strong>Ensoleillement</strong><small>Heatmaps et ombres portées à l'échelle du site.</small></div>
+            <i class="analysis-line analysis-line-sun" aria-hidden="true"></i>
+          </div>
+          <div class="analysis-row">
+            <span>03</span>
+            <div><strong>Contexte</strong><small>Parcelle, bâti, végétation et orthophoto réunis.</small></div>
+            <i class="analysis-line analysis-line-context" aria-hidden="true"></i>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="audience-section section">
-      <div class="section-shell audience-grid">
+    <section class="project section">
+      <div class="section-shell project-grid reveal">
         <div>
           <p class="section-label">Pour le projet paysager</p>
           <h2>Moins de préparation.<br>Plus de lecture.</h2>
         </div>
-        <div class="audience-points">
+        <div class="project-copy">
           <p>GeoSiteKit est pensé pour les bureaux qui travaillent entre territoire, paysage et dessin technique.</p>
           <ul>
             <li>Préparer rapidement un fond de plan cohérent.</li>
-            <li>Comprendre les contraintes et qualités d'un site.</li>
+            <li>Comprendre les contraintes et les qualités d'un site.</li>
             <li>Conserver un passage direct vers le projet AutoCAD.</li>
           </ul>
         </div>
       </div>
     </section>
 
+    <section class="guide-band" id="guide">
+      <div class="section-shell guide-inner reveal">
+        <div class="guide-mark" aria-hidden="true">?</div>
+        <div>
+          <p class="section-label">Mode d'emploi</p>
+          <h2>Une visite interactive de l'application.</h2>
+          <p>La prochaine page reprendra fidèlement l'interface GeoSiteKit avec des zones actives, des infobulles et des explications contextualisées.</p>
+        </div>
+        <span class="guide-status">En préparation</span>
+      </div>
+    </section>
+
     <section class="contact-section" id="contact">
-      <div class="section-shell contact-inner">
+      <div class="section-shell contact-inner reveal">
         <div>
           <p class="section-label">GeoSiteKit</p>
           <h2>Un projet commence par une bonne lecture du site.</h2>
@@ -190,7 +350,10 @@
 
   <footer class="site-footer">
     <div class="section-shell footer-inner">
-      <a class="footer-brand" href="#top">GeoSiteKit</a>
+      <a class="footer-brand" href="#top">
+        <img src="assets/geositekit-mark-dark.png" alt="" width="34" height="34">
+        <span>GeoSiteKit</span>
+      </a>
       <p>De la donnée au projet.</p>
       <p>© <span id="year"></span> GeoSiteKit</p>
     </div>
