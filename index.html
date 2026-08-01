@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GeoSiteKit rassemble et analyse les géodonnées nécessaires à la préparation des projets paysagers dans AutoCAD.">
-  <meta name="theme-color" content="#17233c">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="GeoSiteKit - De la donnée au projet">
   <meta property="og:description" content="Comprendre un site et préparer une base de projet paysager à partir de géodonnées suisses.">
   <meta property="og:type" content="website">
@@ -42,8 +42,6 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <img class="hero-media" src="assets/jonction-orthophoto.jpg" alt="Orthophoto de la Jonction à Genève">
-      <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-cad" aria-hidden="true">
         <div class="hero-bbox">
           <span class="bbox-label">Emprise d'étude</span>
@@ -114,7 +112,7 @@
       <div class="section-shell layer-intro reveal">
         <p class="section-label">De la donnée au projet</p>
         <h2 id="layer-title">Une lecture qui se construit couche après couche.</h2>
-        <p>Faites défiler la page : la scène traduit le passage progressif de l'orthophoto brute à une base de projet lisible.</p>
+        <p>Faites défiler la page : chaque niveau d'information complète progressivement une base de projet claire et lisible.</p>
       </div>
 
       <div class="section-shell layer-layout">
@@ -127,9 +125,6 @@
             </div>
 
             <div class="map-viewport">
-              <img class="map-base parallax-layer" data-depth="0.18" src="assets/jonction-orthophoto.jpg" alt="">
-              <div class="map-wash" aria-hidden="true"></div>
-
               <svg class="map-overlay overlay-cadastre parallax-layer" data-depth="0.34" viewBox="0 0 900 620" aria-hidden="true">
                 <g fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M58 78L236 92L304 184L278 318L108 336L46 236Z"/>
@@ -164,12 +159,12 @@
               </svg>
 
               <div class="map-analysis parallax-layer" data-depth="0.9" aria-hidden="true">
-                <span style="--x:10%;--y:16%;--w:22%;--h:25%;--tone:#98b93d"></span>
-                <span style="--x:34%;--y:12%;--w:26%;--h:32%;--tone:#f2c94c"></span>
-                <span style="--x:62%;--y:18%;--w:28%;--h:28%;--tone:#e8903d"></span>
-                <span style="--x:14%;--y:46%;--w:30%;--h:36%;--tone:#5ba8d1"></span>
-                <span style="--x:46%;--y:48%;--w:22%;--h:34%;--tone:#98b93d"></span>
-                <span style="--x:70%;--y:48%;--w:18%;--h:34%;--tone:#e85d4a"></span>
+                <span style="--x:10%;--y:16%;--w:22%;--h:25%;--tone:#edf4dd"></span>
+                <span style="--x:34%;--y:12%;--w:26%;--h:32%;--tone:#dfecc1"></span>
+                <span style="--x:62%;--y:18%;--w:28%;--h:28%;--tone:#c7db8a"></span>
+                <span style="--x:14%;--y:46%;--w:30%;--h:36%;--tone:#eef5df"></span>
+                <span style="--x:46%;--y:48%;--w:22%;--h:34%;--tone:#a8c85c"></span>
+                <span style="--x:70%;--y:48%;--w:18%;--h:34%;--tone:#7f9f2f"></span>
               </div>
 
               <div class="map-bbox" aria-hidden="true">
@@ -179,7 +174,7 @@
               </div>
 
               <div class="layer-legend" aria-hidden="true">
-                <span class="legend-item is-active" data-legend="0"><i></i>Orthophoto</span>
+                <span class="legend-item is-active" data-legend="0"><i></i>Emprise</span>
                 <span class="legend-item" data-legend="1"><i></i>Cadastre</span>
                 <span class="legend-item" data-legend="2"><i></i>Relief & végétation</span>
                 <span class="legend-item" data-legend="3"><i></i>Analyse</span>
@@ -192,8 +187,8 @@
           <article class="layer-step is-active" data-step="0">
             <span class="step-marker">01</span>
             <p class="section-label">Observer</p>
-            <h3>L'orthophoto donne la réalité du lieu.</h3>
-            <p>Le contexte construit, végétal et territorial reste visible dans une emprise fidèle à celle qui sera importée.</p>
+            <h3>L'emprise fixe le cadre de lecture.</h3>
+            <p>La parcelle de référence, le point central et la zone d'étude posent une base fidèle à ce qui sera importé.</p>
           </article>
           <article class="layer-step" data-step="1">
             <span class="step-marker">02</span>
@@ -351,7 +346,7 @@
   <footer class="site-footer">
     <div class="section-shell footer-inner">
       <a class="footer-brand" href="#top">
-        <img src="assets/geositekit-mark-dark.png" alt="" width="34" height="34">
+        <img src="assets/geositekit-mark-light.png" alt="" width="34" height="34">
         <span>GeoSiteKit</span>
       </a>
       <p>De la donnée au projet.</p>
