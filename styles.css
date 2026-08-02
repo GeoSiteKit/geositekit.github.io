@@ -1450,6 +1450,17 @@ h3 {
     --bbox-bottom: 13%;
   }
 
+  .overlay-cadastre,
+  .map-selection,
+  .overlay-relief {
+    scale: 0.83636 1;
+    transform-origin: center;
+  }
+
+  .map-selection text {
+    display: none;
+  }
+
   .layer-steps {
     width: min(calc(100% - 32px), var(--max-width));
     margin: 0 auto;
