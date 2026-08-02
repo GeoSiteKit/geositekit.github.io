@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Télécharger et installer GeoSiteKit pour AutoCAD sous Windows.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Télécharger GeoSiteKit</title>
+  <link rel="icon" href="assets/geositekit-mark-light.png?v=20260802" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="download.css">
+</head>
+<body class="download-page">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header is-scrolled" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="GeoSiteKit, accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/geositekit-mark-light.png?v=20260802" alt="" width="44" height="44">
+        </span>
+        <span>GeoSiteKit</span>
+      </a>
+      <nav class="download-nav" aria-label="Navigation secondaire">
+        <a href="index.html">Retour au site</a>
+        <a href="mode-emploi.html">Mode d'emploi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="download-hero">
+      <div class="download-shell">
+        <p class="section-label">Application Windows · AutoCAD</p>
+        <h1>Télécharger GeoSiteKit</h1>
+        <p class="download-lead">L'archive contient l'application autonome, son environnement d'exécution et le fichier LISP à charger dans AutoCAD.</p>
+
+        <div class="download-action-row">
+          <a class="button button-primary download-now" id="download-now"
+             href="https://github.com/SwissgeoApp/swissgeo-releases/releases/download/v1.6.22/SwissGeo-v1.6.22-win64.zip">
+            Télécharger la dernière version
+          </a>
+          <div class="release-meta" aria-live="polite">
+            <strong id="release-version">Version stable</strong>
+            <span id="release-size">Archive Windows 64 bits</span>
+          </div>
+        </div>
+
+        <p class="download-status" id="download-status" role="status">
+          Le téléchargement démarre automatiquement depuis GitHub.
+        </p>
+      </div>
+    </section>
+
+    <section class="install-section" aria-labelledby="install-title">
+      <div class="download-shell install-layout">
+        <div class="install-heading">
+          <p class="section-label">Installation</p>
+          <h2 id="install-title">Quatre étapes, sans installateur.</h2>
+          <p>GeoSiteKit est distribué sous forme d'application portable. Conservez son dossier complet : les composants inclus sont nécessaires à son fonctionnement.</p>
+        </div>
+
+        <ol class="install-steps">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Extraire l'archive</h3>
+              <p>Ouvrez le fichier ZIP téléchargé, puis extrayez entièrement le dossier <code>SWISSGEO_APP</code>.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Placer l'application</h3>
+              <p>Déplacez ce dossier directement dans <code>C:\</code>. Le chemin final doit être <code>C:\SWISSGEO_APP</code>.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Charger le fichier LISP</h3>
+              <p>Dans AutoCAD, lancez <code>APPLOAD</code> et chargez <code>C:\SWISSGEO_APP\SwissGeo.lsp</code>. Ajoutez-le à la suite de démarrage pour le charger automatiquement.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <h3>Lancer GeoSiteKit</h3>
+              <p>Enregistrez le dessin DWG, puis saisissez la commande <code>SWISSGEO</code> dans AutoCAD.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="install-note">
+      <div class="download-shell note-grid">
+        <div>
+          <p class="section-label">À savoir</p>
+          <h2>Une transition de nom maîtrisée.</h2>
+        </div>
+        <p>Le paquet public actuel conserve temporairement le nom de dossier <code>SWISSGEO_APP</code> et la commande <code>SWISSGEO</code>. La page de téléchargement basculera vers le dépôt GeoSiteKit dès la migration de l'application.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="download-shell footer-inner">
+      <a class="footer-brand" href="index.html">
+        <img src="assets/geositekit-mark-light.png?v=20260802" alt="" width="34" height="34">
+        <span>GeoSiteKit</span>
+      </a>
+      <p>De la donnée au projet.</p>
+      <p>© <span id="year"></span> GeoSiteKit</p>
+    </div>
+  </footer>
+
+  <script src="download.js"></script>
+</body>
+</html>
