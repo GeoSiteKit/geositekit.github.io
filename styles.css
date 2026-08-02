@@ -638,6 +638,8 @@ h3 {
 }
 
 .map-viewport {
+  --bbox-top: 15%;
+  --bbox-side: 13%;
   position: relative;
   height: calc(100% - 48px);
   overflow: hidden;
@@ -668,6 +670,10 @@ h3 {
   color: var(--accent);
 }
 
+.overlay-relief path {
+  stroke-dasharray: 7 5;
+}
+
 .overlay-relief text {
   font-family: Consolas, "Courier New", monospace;
   font-size: 11px;
@@ -695,6 +701,51 @@ h3 {
 .layer-stage[data-active="3"] .overlay-relief,
 .layer-stage[data-active="3"] .overlay-trees {
   opacity: 0.2;
+}
+
+.map-outside-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.layer-stage[data-active="1"] .map-outside-fade,
+.layer-stage[data-active="2"] .map-outside-fade,
+.layer-stage[data-active="3"] .map-outside-fade {
+  opacity: 1;
+}
+
+.map-outside-fade i {
+  position: absolute;
+  display: block;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.outside-top {
+  inset: 0 0 auto;
+  height: var(--bbox-top);
+}
+
+.outside-bottom {
+  inset: auto 0 0;
+  height: var(--bbox-top);
+}
+
+.outside-left {
+  top: var(--bbox-top);
+  bottom: var(--bbox-top);
+  left: 0;
+  width: var(--bbox-side);
+}
+
+.outside-right {
+  top: var(--bbox-top);
+  right: 0;
+  bottom: var(--bbox-top);
+  width: var(--bbox-side);
 }
 
 .map-analysis {
@@ -750,7 +801,7 @@ h3 {
 .map-bbox {
   position: absolute;
   z-index: 4;
-  inset: 15% 13%;
+  inset: var(--bbox-top) var(--bbox-side);
   border: 3px solid var(--import);
   box-shadow: none;
   transition: inset 420ms ease;
@@ -1498,8 +1549,9 @@ h3 {
     font-size: 10px;
   }
 
-  .map-bbox {
-    inset: 13% 9%;
+  .map-viewport {
+    --bbox-top: 13%;
+    --bbox-side: 9%;
   }
 
   .layer-steps {
