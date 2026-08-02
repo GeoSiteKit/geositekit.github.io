@@ -8,9 +8,9 @@
   <meta property="og:title" content="GeoSiteKit - De la donnée au projet">
   <meta property="og:description" content="Comprendre un site et préparer une base de projet paysager à partir de géodonnées suisses.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.geositekit.ch/assets/geositekit-mark-light.png?v=20260802">
+  <meta property="og:image" content="https://www.geositekit.ch/assets/geositekit-mark-light.png?v=20260803">
   <title>GeoSiteKit - De la donnée au projet</title>
-  <link rel="icon" href="assets/geositekit-mark-light.png?v=20260802" type="image/png">
+  <link rel="icon" href="assets/geositekit-mark-light.png?v=20260803" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="nav-shell">
       <a class="brand" href="#top" aria-label="GeoSiteKit, accueil">
         <span class="brand-mark" aria-hidden="true">
-          <img src="assets/geositekit-mark-light.png?v=20260802" alt="" width="44" height="44">
+          <img src="assets/geositekit-mark-light.png?v=20260803" alt="" width="44" height="44">
         </span>
         <span>GeoSiteKit</span>
       </a>
@@ -33,7 +33,7 @@
         <a href="#approche">Approche</a>
         <a href="#donnees">Données</a>
         <a href="#analyse">Analyses</a>
-        <a href="mode-emploi.html">Mode d'emploi</a>
+        <a href="mode-emploi.html">Guide d'utilisation</a>
         <a href="telechargement.html" class="nav-download">Télécharger</a>
         <a class="nav-contact" href="mailto:contact@geositekit.ch">Contact</a>
       </nav>
@@ -61,7 +61,7 @@
         <p class="hero-copy">Une lecture claire du terrain pour préparer les premières décisions d'un projet paysager.</p>
         <div class="hero-actions">
           <a class="button button-primary button-download" href="telechargement.html?download=1">Télécharger l'application</a>
-          <a class="button button-ghost" href="#approche">Voir le fonctionnement</a>
+          <a class="button button-ghost" href="mode-emploi.html">Ouvrir le mode d'emploi</a>
           <a class="button button-ghost" href="mailto:contact@geositekit.ch">Nous contacter</a>
         </div>
       </div>
@@ -147,16 +147,17 @@
               </svg>
 
               <svg class="map-overlay overlay-relief parallax-layer" data-depth="0.58" viewBox="0 0 900 620" preserveAspectRatio="none" aria-hidden="true">
-                <g fill="none" stroke="currentColor" stroke-width="1.35" vector-effect="non-scaling-stroke">
-                  <path d="M-30 118C102 42 220 152 340 92S586 36 744 106S874 128 930 96"/>
-                  <path d="M-38 166C98 88 224 202 352 138S594 84 750 150S878 170 938 142"/>
-                  <path d="M-42 218C92 142 232 250 362 190S608 132 760 202S880 218 942 192"/>
-                  <path d="M-38 274C104 198 242 304 374 244S620 190 770 258S884 276 942 248"/>
-                  <path d="M-44 334C106 252 252 358 386 298S632 250 782 314S894 330 944 306"/>
-                  <path d="M-42 396C116 310 264 412 398 354S646 310 792 372S900 384 946 362"/>
-                  <path d="M-38 460C128 370 276 472 412 416S660 372 806 432S906 446 942 426"/>
-                  <path d="M-34 526C140 432 286 538 426 480S674 438 820 496S910 510 938 492"/>
-                  <path d="M-20 592C154 498 302 606 442 546S690 506 838 562S912 576 932 560"/>
+                <g fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke">
+                  <path d="M-48 92C64 58 148 76 226 116C310 160 386 156 470 105C552 55 654 36 760 72C824 94 878 102 948 80"/>
+                  <path d="M-54 148C52 112 148 124 236 164C322 204 404 198 488 148C574 96 674 84 774 116C844 138 890 140 954 124"/>
+                  <path d="M-56 216C48 170 152 178 246 216C342 254 426 246 512 198C598 150 700 146 796 176C856 194 906 196 958 178"/>
+                  <path d="M-62 292C42 238 156 240 262 278C356 312 446 306 534 262C624 216 722 220 814 250C870 268 916 266 962 246"/>
+                  <path d="M-58 372C56 312 170 316 278 350C382 382 470 380 558 338C650 294 748 302 834 330C884 346 926 342 960 324"/>
+                  <path d="M-52 454C68 398 184 402 294 430C400 458 492 460 582 420C674 380 770 390 850 414C896 428 930 426 956 410"/>
+                  <path d="M-44 536C78 486 200 490 314 516C422 540 518 544 608 508C704 470 796 480 868 502C908 514 936 512 956 500"/>
+                  <path d="M-22 610C102 570 224 568 338 590C450 612 548 616 640 584C734 552 820 560 884 578C918 588 942 586 960 578"/>
+                  <path d="M616 202C650 176 704 172 746 196C784 218 790 254 760 278C728 304 672 306 632 282C594 258 586 226 616 202Z"/>
+                  <path d="M644 220C666 204 700 202 726 216C750 230 754 250 734 266C712 282 678 282 652 268C628 254 624 236 644 220Z"/>
                   <text x="78" y="448" fill="currentColor" stroke="none">438.0</text>
                   <text x="744" y="360" fill="currentColor" stroke="none">440.0</text>
                 </g>
@@ -177,35 +178,42 @@
                 </g>
               </svg>
 
+              <div class="map-outside-fade" aria-hidden="true">
+                <i class="outside-top"></i>
+                <i class="outside-right"></i>
+                <i class="outside-bottom"></i>
+                <i class="outside-left"></i>
+              </div>
+
               <svg class="map-analysis parallax-layer" data-depth="0.9" viewBox="0 0 900 620" preserveAspectRatio="none" aria-hidden="true">
                 <g class="analysis-trace" fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
-                  <path d="M112 168L784 352" stroke-width="2" stroke-dasharray="9 7"/>
-                  <circle cx="112" cy="168" r="8" fill="white" stroke-width="2"/>
-                  <circle cx="784" cy="352" r="8" fill="white" stroke-width="2"/>
+                  <path d="M160 110L505 390" stroke-width="2" stroke-dasharray="9 7"/>
+                  <circle cx="160" cy="110" r="8" fill="white" stroke-width="2"/>
+                  <circle cx="505" cy="390" r="8" fill="white" stroke-width="2"/>
                 </g>
                 <g class="analysis-labels" fill="currentColor">
-                  <text x="86" y="150">A</text><text x="798" y="344">A'</text>
+                  <text x="135" y="92">A</text><text x="516" y="408">A'</text>
                 </g>
                 <g class="profile-sheet">
-                  <path class="profile-ground" d="M84 514C148 502 190 456 250 466S352 510 422 472S526 396 592 418S690 478 816 430L816 546H84Z"/>
-                  <path class="profile-line" d="M84 514C148 502 190 456 250 466S352 510 422 472S526 396 592 418S690 478 816 430"/>
-                  <path class="profile-base" d="M84 546H816"/>
+                  <path class="profile-ground" d="M72 522C118 514 148 480 188 486S254 522 300 500S374 448 420 458S478 496 540 468L540 548H72Z"/>
+                  <path class="profile-line" d="M72 522C118 514 148 480 188 486S254 522 300 500S374 448 420 458S478 496 540 468"/>
+                  <path class="profile-base" d="M72 548H540"/>
                   <g class="profile-points">
-                    <path d="M190 456V546M422 472V546M592 418V546"/>
-                    <circle cx="190" cy="456" r="4"/><circle cx="422" cy="472" r="4"/><circle cx="592" cy="418" r="4"/>
+                    <path d="M148 480V548M300 500V548M420 458V548"/>
+                    <circle cx="148" cy="480" r="4"/><circle cx="300" cy="500" r="4"/><circle cx="420" cy="458" r="4"/>
                   </g>
                   <g class="profile-values">
-                    <text x="152" y="438">438.20 m</text>
-                    <text x="384" y="454">439.65 m</text>
-                    <text x="554" y="400">442.10 m</text>
-                    <text x="84" y="574">PROFIL A-A'</text>
+                    <text x="108" y="462">438.20 m</text>
+                    <text x="260" y="482">439.65 m</text>
+                    <text x="380" y="440">442.10 m</text>
+                    <text x="72" y="576">PROFIL A-A'</text>
                   </g>
                 </g>
               </svg>
 
               <div class="map-bbox" aria-hidden="true">
                 <svg class="map-parcel" viewBox="0 0 220 160" preserveAspectRatio="none">
-                  <path d="M16 48L76 19L163 28L207 76L174 137L77 132L20 98Z"/>
+                  <path d="M12 43L63 19L131 24L205 61L188 103L154 139L82 134L21 108Z"/>
                 </svg>
                 <span class="map-center"></span>
                 <small>150 m</small>
@@ -362,7 +370,7 @@
       <div class="section-shell guide-inner reveal">
         <div class="guide-mark" aria-hidden="true">?</div>
         <div>
-          <p class="section-label">Mode d'emploi</p>
+          <p class="section-label">Guide d'utilisation</p>
           <h2>Une visite interactive de l'application.</h2>
           <p>La prochaine page reprendra fidèlement l'interface GeoSiteKit avec des zones actives, des infobulles et des explications contextualisées.</p>
         </div>
@@ -384,7 +392,7 @@
   <footer class="site-footer">
     <div class="section-shell footer-inner">
       <a class="footer-brand" href="#top">
-        <img src="assets/geositekit-mark-light.png?v=20260802" alt="" width="34" height="34">
+        <img src="assets/geositekit-mark-light.png?v=20260803" alt="" width="34" height="34">
         <span>GeoSiteKit</span>
       </a>
       <p>De la donnée au projet.</p>
