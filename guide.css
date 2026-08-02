@@ -827,7 +827,7 @@
   overflow: hidden;
   background:
     linear-gradient(rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.42)),
-    url("assets/jonction-orthophoto.jpg") center / cover no-repeat;
+    url("assets/jonction-orthophoto.png?v=20260805") center / cover no-repeat;
 }
 
 .preview-map svg {

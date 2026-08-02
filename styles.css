@@ -397,7 +397,7 @@ h3 {
   border: 2px solid var(--border-strong);
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.69), rgba(255, 255, 255, 0.69)),
-    url("assets/jonction-orthophoto.jpg");
+    url("assets/jonction-orthophoto.png?v=20260805");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -827,10 +827,10 @@ h3 {
 .profile-graphic {
   position: absolute;
   z-index: 4;
-  bottom: 2.5%;
+  bottom: 1.5%;
   left: 4%;
-  width: 56%;
-  height: 23%;
+  width: 50%;
+  height: 28%;
   color: var(--accent-dark);
   opacity: 0;
   transition: opacity 420ms ease;

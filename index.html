@@ -11,7 +11,7 @@
   <meta property="og:image" content="https://www.geositekit.ch/assets/geositekit-mark-light.png?v=20260804">
   <title>GeoSiteKit - De la donnée au projet</title>
   <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260805">
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -126,17 +126,17 @@
             </div>
 
             <div class="map-viewport">
-              <svg class="map-overlay overlay-cadastre parallax-layer" data-depth="0.34" viewBox="0 0 900 620" preserveAspectRatio="none" aria-hidden="true">
+              <svg class="map-overlay overlay-cadastre parallax-layer" data-depth="0.34" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <g id="ursy-parcels" fill="none" stroke="currentColor" stroke-width="1.35" vector-effect="non-scaling-stroke"></g>
                 <g id="ursy-buildings" stroke="currentColor" stroke-width="1.4" vector-effect="non-scaling-stroke"></g>
               </svg>
 
-              <svg class="map-overlay map-selection parallax-layer" data-depth="0.34" viewBox="0 0 900 620" preserveAspectRatio="none" aria-hidden="true">
+              <svg class="map-overlay map-selection parallax-layer" data-depth="0.34" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <path id="ursy-selection"/>
                 <text x="455" y="272">205</text>
               </svg>
 
-              <svg class="map-overlay overlay-relief parallax-layer" data-depth="0.58" viewBox="0 0 900 620" preserveAspectRatio="none" aria-hidden="true">
+              <svg class="map-overlay overlay-relief parallax-layer" data-depth="0.58" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <g id="ursy-contours" fill="none" stroke="currentColor" stroke-width="1.15" vector-effect="non-scaling-stroke"></g>
                 <g fill="currentColor" stroke="none">
                   <text x="108" y="446">742.0</text>
@@ -144,7 +144,7 @@
                 </g>
               </svg>
 
-              <svg class="map-overlay overlay-trees parallax-layer" data-depth="0.72" viewBox="0 0 900 620" preserveAspectRatio="none" aria-hidden="true">
+              <svg class="map-overlay overlay-trees parallax-layer" data-depth="0.72" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <defs>
                   <g id="tree-symbol" fill="white" stroke="currentColor" stroke-width="1.45" vector-effect="non-scaling-stroke">
                     <path d="M0-23C8-23 13-18 15-12C23-11 27-4 24 3C29 11 22 19 14 19C9 27-2 28-8 21C-17 25-25 18-23 9C-30 3-26-7-18-10C-17-19-8-25 0-23Z"/>
@@ -166,7 +166,7 @@
                 <i class="outside-left"></i>
               </div>
 
-              <svg class="map-analysis parallax-layer" data-depth="0.9" viewBox="0 0 900 620" preserveAspectRatio="none" aria-hidden="true">
+              <svg class="map-analysis parallax-layer" data-depth="0.9" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <g class="analysis-trace" fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
                   <path d="M286 132L600 350" stroke-width="1.7" stroke-dasharray="9 7"/>
                   <circle cx="286" cy="132" r="5" fill="white" stroke-width="1.7"/>
@@ -177,19 +177,19 @@
                 </g>
               </svg>
 
-              <svg class="profile-graphic" viewBox="0 0 540 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-                <path class="profile-ground" d="M14 108C62 100 92 70 136 76S208 112 258 88S338 40 388 52S464 92 526 60L526 126H14Z"/>
-                <path class="profile-line" d="M14 108C62 100 92 70 136 76S208 112 258 88S338 40 388 52S464 92 526 60"/>
-                <path class="profile-base" d="M14 126H526"/>
+              <svg class="profile-graphic" viewBox="0 0 540 190" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <path class="profile-ground" d="M14 150C62 144 88 125 128 130S200 138 258 108S330 72 388 82S466 110 526 66L526 165H14Z"/>
+                <path class="profile-line" d="M14 150C62 144 88 125 128 130S200 138 258 108S330 72 388 82S466 110 526 66"/>
+                <path class="profile-base" d="M14 165H526"/>
                 <g class="profile-points">
-                  <path d="M92 70V126M258 88V126M388 52V126"/>
-                  <circle cx="92" cy="70" r="3"/><circle cx="258" cy="88" r="3"/><circle cx="388" cy="52" r="3"/>
+                  <path d="M92 125V165M258 108V165M388 82V165"/>
+                  <circle cx="92" cy="125" r="3"/><circle cx="258" cy="108" r="3"/><circle cx="388" cy="82" r="3"/>
                 </g>
                 <g class="profile-values">
-                  <text x="58" y="57">741.20 m</text>
-                  <text x="224" y="75">749.65 m</text>
-                  <text x="354" y="39">760.10 m</text>
-                  <text x="14" y="145">PROFIL A-A'</text>
+                  <text x="58" y="112">741.20 m</text>
+                  <text x="224" y="95">749.65 m</text>
+                  <text x="354" y="69">760.10 m</text>
+                  <text x="14" y="187">PROFIL A-A'</text>
                 </g>
               </svg>
 
