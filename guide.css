@@ -29,6 +29,10 @@
   padding: 7px 15px;
 }
 
+.guide-mobile-link {
+  display: none;
+}
+
 .guide-intro {
   padding: 146px 0 62px;
   border-bottom: 1px solid var(--border);
@@ -889,13 +893,47 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .guide-page-shell {
     width: min(calc(100% - 24px), 1360px);
   }
 
-  .guide-site-nav > a:first-child {
+  .guide-site-nav {
+    position: absolute;
+    top: 60px;
+    right: 12px;
+    left: 12px;
+    z-index: 30;
+    padding: 12px;
     display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: 7px;
+    background: #ffffff;
+    box-shadow: 0 18px 38px rgba(44, 48, 41, 0.12);
+  }
+
+  .guide-site-nav.is-open {
+    display: flex;
+  }
+
+  .guide-site-nav a,
+  .guide-site-nav > a:first-child {
+    padding: 10px 8px;
+    display: block;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .guide-site-nav a:hover,
+  .guide-site-nav a:focus-visible {
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    outline: none;
   }
 
   .guide-intro {
@@ -907,27 +945,73 @@
   }
 
   .guide-workspace {
-    padding: 30px 0 72px;
+    padding: 16px 0 52px;
   }
 
   .guide-stage {
-    gap: 18px;
+    min-height: calc(100svh - 84px);
+    grid-template-rows: minmax(300px, 48svh) auto;
+    gap: 8px;
+    align-content: start;
   }
 
   .tour-panel {
-    padding: 20px;
+    position: sticky;
+    bottom: 8px;
+    z-index: 20;
+    order: 0;
+    min-height: 0;
+    padding: 14px 15px;
+    box-shadow: 0 -10px 28px rgba(44, 48, 41, 0.1);
   }
 
   .tour-progress {
-    margin-bottom: 18px;
+    margin-bottom: 9px;
   }
 
   .tour-panel h2 {
-    font-size: 23px;
+    margin-bottom: 7px;
+    font-size: 18px;
+    line-height: 1.16;
+  }
+
+  .tour-panel > .section-label {
+    margin-bottom: 5px;
+    font-size: 10px;
+  }
+
+  .tour-panel > p:not(.section-label) {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  .tour-panel > small,
+  .guide-disclaimer {
+    display: none;
   }
 
   .tour-actions {
-    margin-top: 20px;
+    margin: 11px 0 0;
+  }
+
+  .tour-actions button {
+    min-height: 36px;
+    padding: 7px 11px;
+  }
+
+  .app-frame {
+    height: 48svh;
+    min-height: 300px;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+  }
+
+  .app-titlebar {
+    position: sticky;
+    top: 0;
+    z-index: 14;
   }
 
   .app-body {
@@ -936,6 +1020,9 @@
   }
 
   .app-sidebar {
+    position: sticky;
+    top: 38px;
+    z-index: 13;
     padding: 10px;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
@@ -1029,11 +1116,6 @@
 @media (max-width: 420px) {
   .guide-intro h1 {
     font-size: 34px;
-  }
-
-  .guide-site-nav .button {
-    padding: 7px 11px;
-    font-size: 12px;
   }
 
   .view-heading h2,

@@ -63,7 +63,39 @@ const tourProgress = document.querySelector('#tour-progress');
 const tourKicker = document.querySelector('#tour-kicker');
 const tourTitle = document.querySelector('#tour-title');
 const tourCopy = document.querySelector('#tour-copy');
+const appFrame = document.querySelector('#app-frame');
+const guideNavToggle = document.querySelector('.guide-nav-toggle');
+const guideNavigation = document.querySelector('#guide-site-nav');
 let activeTour = 0;
+
+guideNavToggle?.addEventListener('click', () => {
+  const isOpen = guideNavToggle.getAttribute('aria-expanded') === 'true';
+  guideNavToggle.setAttribute('aria-expanded', String(!isOpen));
+  guideNavToggle.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+  guideNavigation?.classList.toggle('is-open', !isOpen);
+});
+
+guideNavigation?.addEventListener('click', (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    guideNavToggle?.setAttribute('aria-expanded', 'false');
+    guideNavToggle?.setAttribute('aria-label', 'Ouvrir le menu');
+    guideNavigation.classList.remove('is-open');
+  }
+});
+
+const centerActiveTargetOnMobile = (index) => {
+  if (!appFrame || !window.matchMedia('(max-width: 860px)').matches) return;
+  const target = tourTargets.find((item) => Number(item.dataset.tourTarget) === index);
+  if (!target) return;
+
+  window.requestAnimationFrame(() => {
+    const frameRect = appFrame.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const targetCenter = targetRect.top - frameRect.top + appFrame.scrollTop + (targetRect.height / 2);
+    const top = Math.max(0, targetCenter - (appFrame.clientHeight / 2));
+    appFrame.scrollTo({ top, behavior: 'smooth' });
+  });
+};
 
 const setView = (name) => {
   appViews.forEach((view) => view.classList.toggle('is-active', view.dataset.appView === name));
@@ -100,6 +132,7 @@ const setTour = (index) => {
       ? 'Recommencer <span>↺</span>'
       : 'Étape suivante <span>→</span>';
   }
+  centerActiveTargetOnMobile(bounded);
 };
 
 tourPrevious?.addEventListener('click', () => setTour(activeTour - 1));
@@ -155,6 +188,11 @@ settingsTabs.forEach((tab) => {
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && previewModal && !previewModal.hidden) previewModal.hidden = true;
+  if (event.key === 'Escape' && guideNavigation?.classList.contains('is-open')) {
+    guideNavigation.classList.remove('is-open');
+    guideNavToggle?.setAttribute('aria-expanded', 'false');
+    guideNavToggle?.setAttribute('aria-label', 'Ouvrir le menu');
+  }
 });
 
 const year = document.querySelector('#year');
