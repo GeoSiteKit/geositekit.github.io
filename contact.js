@@ -11,9 +11,9 @@ const submitContact = document.querySelector('#submit-contact');
 const formSuccess = document.querySelector('#form-success');
 
 const categories = {
-  contact: { label: 'Contact', tag: 'CONTACT' },
-  licence: { label: 'Demande de licence', tag: 'LICENCE' },
-  bug: { label: 'Signalement de bug', tag: 'BUG' }
+  contact: { label: 'Contact', mailSubject: 'Contact' },
+  licence: { label: 'Accès licence', mailSubject: 'Accès licence' },
+  bug: { label: "Signalement d'un bug", mailSubject: "Signalement d'un bug" }
 };
 
 const activeCategory = () => requestTypes.find((input) => input.checked)?.value || 'contact';
@@ -28,7 +28,7 @@ const updateCategory = () => {
 const updateMailSubject = () => {
   const category = categories[activeCategory()];
   const subject = subjectInput.value.trim().replace(/\s+/g, ' ').slice(0, 120) || 'Nouveau message';
-  mailSubject.value = `[GeoSiteKit][${category.tag}] ${subject}`;
+  mailSubject.value = `[GeoSiteKit] ${category.mailSubject} - ${subject}`;
 };
 
 const selectCategoryFromUrl = () => {

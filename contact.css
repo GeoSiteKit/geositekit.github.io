@@ -47,6 +47,10 @@
   color: var(--accent-dark);
 }
 
+.form-success[hidden] {
+  display: none;
+}
+
 .form-success span {
   color: var(--muted);
 }
