@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#ffffff">
   <title>Télécharger GeoSiteKit</title>
   <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260809">
+  <link rel="stylesheet" href="styles.css?v=20260811">
   <link rel="stylesheet" href="download.css">
 </head>
 <body class="download-page">
@@ -21,9 +21,17 @@
         </span>
         <span>GeoSiteKit</span>
       </a>
-      <nav class="download-nav" aria-label="Navigation secondaire">
-        <a href="index.html">Retour au site</a>
+      <button class="nav-toggle download-nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Navigation principale">
+        <a href="index.html">Présentation</a>
+        <a href="index.html#approche">Approche</a>
+        <a href="index.html#donnees">Données</a>
+        <a href="index.html#analyse">Analyses</a>
         <a href="mode-emploi.html">Guide d'utilisation</a>
+        <a href="telechargement.html" class="nav-download" aria-current="page">Télécharger</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -115,6 +123,6 @@
     </div>
   </footer>
 
-  <script src="download.js"></script>
+  <script src="download.js?v=20260811"></script>
 </body>
 </html>

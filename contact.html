@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contacter GeoSiteKit, demander un accès licence ou signaler un problème.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Contacter GeoSiteKit</title>
+  <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
+  <link rel="stylesheet" href="styles.css?v=20260811">
+  <link rel="stylesheet" href="contact.css?v=20260810">
+</head>
+<body class="contact-page">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header is-scrolled" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="index.html" aria-label="GeoSiteKit, accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="44" height="44">
+        </span>
+        <span>GeoSiteKit</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Navigation principale">
+        <a href="index.html">Présentation</a>
+        <a href="index.html#approche">Approche</a>
+        <a href="index.html#donnees">Données</a>
+        <a href="index.html#analyse">Analyses</a>
+        <a href="mode-emploi.html">Guide d'utilisation</a>
+        <a href="telechargement.html" class="nav-download">Télécharger</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="contact-intro">
+      <div class="contact-shell contact-intro-grid">
+        <div>
+          <p class="section-label">Contact GeoSiteKit</p>
+          <h1>Parlons de votre demande.</h1>
+        </div>
+        <p>Une question, une demande d'accès ou un problème à signaler : choisissez le motif correspondant pour que votre message soit orienté correctement.</p>
+      </div>
+    </section>
+
+    <section class="contact-section" aria-labelledby="contact-form-title">
+      <div class="contact-shell">
+        <div class="form-success" id="form-success" role="status" hidden>
+          <strong>Votre message a bien été transmis.</strong>
+          <span>Merci. Vous recevrez une réponse à l'adresse indiquée dans le formulaire.</span>
+        </div>
+
+        <div class="contact-layout">
+          <form class="contact-form" id="contact-form" action="https://formsubmit.co/contact@geositekit.ch" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" id="mail-subject" value="[GeoSiteKit][CONTACT] Nouveau message">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.geositekit.ch/contact.html?sent=1">
+            <input type="hidden" name="_url" value="https://www.geositekit.ch/contact.html">
+            <input type="hidden" name="Catégorie" id="category-label" value="Contact">
+            <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-heading">
+              <p class="section-label">Votre message</p>
+              <h2 id="contact-form-title">Comment pouvons-nous vous aider ?</h2>
+            </div>
+
+            <fieldset class="request-types">
+              <legend>Type de demande</legend>
+              <label>
+                <input type="radio" name="Type de demande" value="contact" checked>
+                <span>Contact</span>
+              </label>
+              <label>
+                <input type="radio" name="Type de demande" value="licence">
+                <span>Demander un accès licence</span>
+              </label>
+              <label>
+                <input type="radio" name="Type de demande" value="bug">
+                <span>Signaler un bug</span>
+              </label>
+            </fieldset>
+
+            <div class="bug-advice" id="bug-advice" hidden>
+              <strong>Pour transmettre aussi les journaux techniques</strong>
+              <p>Utilisez de préférence la fonction de signalement intégrée à l'application. Elle joindra les logs utiles au diagnostic. Ce formulaire reste disponible pour ajouter des captures ou des précisions.</p>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                <span>Nom</span>
+                <input type="text" name="Nom" autocomplete="name" required>
+              </label>
+              <label>
+                <span>E-mail de contact</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label class="form-wide">
+                <span>Objet</span>
+                <input type="text" name="Objet" id="subject" maxlength="140" required>
+              </label>
+              <label class="form-wide">
+                <span>Message</span>
+                <textarea name="Message" rows="8" required></textarea>
+              </label>
+              <label class="form-wide file-field">
+                <span>Pièces jointes <small>facultatif, 10 Mo au total</small></span>
+                <input type="file" name="attachment" id="attachments" multiple accept=".png,.jpg,.jpeg,.webp,.pdf,.txt,.log,.zip">
+                <small id="file-summary">Captures, PDF, fichiers LOG, TXT ou ZIP.</small>
+              </label>
+            </div>
+
+            <label class="consent-row">
+              <input type="checkbox" required>
+              <span>J'accepte que les informations transmises soient utilisées pour traiter ma demande.</span>
+            </label>
+
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+
+            <button class="button button-primary submit-contact" id="submit-contact" type="submit">Envoyer le message</button>
+          </form>
+
+          <aside class="direct-contact" aria-labelledby="direct-contact-title">
+            <p class="section-label">E-mail direct</p>
+            <h2 id="direct-contact-title">Vous préférez écrire simplement ?</h2>
+            <p>Le formulaire n'est pas obligatoire. Vous pouvez ouvrir votre messagerie habituelle ou utiliser directement l'adresse ci-dessous.</p>
+            <a class="button button-ghost" href="mailto:contact@geositekit.ch">Écrire depuis ma messagerie</a>
+            <a class="plain-email" href="mailto:contact@geositekit.ch">contact@geositekit.ch</a>
+            <div class="sorting-note">
+              <strong>Des demandes faciles à suivre</strong>
+              <p>Les messages du formulaire sont identifiés comme contact, licence ou bug afin d'être classés séparément.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contact-shell footer-inner">
+      <a class="footer-brand" href="index.html">
+        <img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="34" height="34">
+        <span>GeoSiteKit</span>
+      </a>
+      <p>De la donnée au projet.</p>
+      <p>© <span id="year"></span> GeoSiteKit</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260811"></script>
+  <script src="contact.js?v=20260810"></script>
+</body>
+</html>

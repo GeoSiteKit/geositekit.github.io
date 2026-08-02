@@ -9,6 +9,12 @@ const layerLegendItems = [...document.querySelectorAll('[data-legend]')];
 const parallaxLayers = [...document.querySelectorAll('.parallax-layer')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+const closePrimaryNavigation = () => {
+  toggle?.setAttribute('aria-expanded', 'false');
+  toggle?.setAttribute('aria-label', 'Ouvrir le menu');
+  navigation?.classList.remove('is-open');
+};
+
 if (toggle && navigation) {
   toggle.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
@@ -19,10 +25,17 @@ if (toggle && navigation) {
 
   navigation.addEventListener('click', (event) => {
     if (event.target instanceof HTMLAnchorElement) {
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Ouvrir le menu');
-      navigation.classList.remove('is-open');
+      closePrimaryNavigation();
     }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Node)) return;
+    if (!navigation.contains(event.target) && !toggle.contains(event.target)) closePrimaryNavigation();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closePrimaryNavigation();
   });
 }
 

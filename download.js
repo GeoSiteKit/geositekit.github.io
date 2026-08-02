@@ -9,6 +9,35 @@ const downloadLink = document.querySelector('#download-now');
 const versionLabel = document.querySelector('#release-version');
 const sizeLabel = document.querySelector('#release-size');
 const statusLabel = document.querySelector('#download-status');
+const downloadNavToggle = document.querySelector('.download-nav-toggle');
+const downloadNavigation = document.querySelector('#primary-nav');
+
+const closeDownloadNavigation = () => {
+  downloadNavToggle?.setAttribute('aria-expanded', 'false');
+  downloadNavToggle?.setAttribute('aria-label', 'Ouvrir le menu');
+  downloadNavigation?.classList.remove('is-open');
+};
+
+downloadNavToggle?.addEventListener('click', () => {
+  const isOpen = downloadNavToggle.getAttribute('aria-expanded') === 'true';
+  downloadNavToggle.setAttribute('aria-expanded', String(!isOpen));
+  downloadNavToggle.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+  downloadNavigation?.classList.toggle('is-open', !isOpen);
+});
+
+downloadNavigation?.addEventListener('click', (event) => {
+  if (!(event.target instanceof HTMLAnchorElement)) return;
+  closeDownloadNavigation();
+});
+
+document.addEventListener('click', (event) => {
+  if (!(event.target instanceof Node) || !downloadNavigation || !downloadNavToggle) return;
+  if (!downloadNavigation.contains(event.target) && !downloadNavToggle.contains(event.target)) closeDownloadNavigation();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeDownloadNavigation();
+});
 
 const formatSize = (bytes) => {
   const value = Number(bytes);

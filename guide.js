@@ -68,6 +68,12 @@ const guideNavToggle = document.querySelector('.guide-nav-toggle');
 const guideNavigation = document.querySelector('#guide-site-nav');
 let activeTour = 0;
 
+const closeGuideNavigation = () => {
+  guideNavToggle?.setAttribute('aria-expanded', 'false');
+  guideNavToggle?.setAttribute('aria-label', 'Ouvrir le menu');
+  guideNavigation?.classList.remove('is-open');
+};
+
 guideNavToggle?.addEventListener('click', () => {
   const isOpen = guideNavToggle.getAttribute('aria-expanded') === 'true';
   guideNavToggle.setAttribute('aria-expanded', String(!isOpen));
@@ -77,10 +83,17 @@ guideNavToggle?.addEventListener('click', () => {
 
 guideNavigation?.addEventListener('click', (event) => {
   if (event.target instanceof HTMLAnchorElement) {
-    guideNavToggle?.setAttribute('aria-expanded', 'false');
-    guideNavToggle?.setAttribute('aria-label', 'Ouvrir le menu');
-    guideNavigation.classList.remove('is-open');
+    closeGuideNavigation();
   }
+});
+
+document.addEventListener('click', (event) => {
+  if (!(event.target instanceof Node) || !guideNavigation || !guideNavToggle) return;
+  if (!guideNavigation.contains(event.target) && !guideNavToggle.contains(event.target)) closeGuideNavigation();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeGuideNavigation();
 });
 
 const centerActiveTargetOnMobile = (index) => {
