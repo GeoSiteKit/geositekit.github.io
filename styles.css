@@ -628,6 +628,13 @@ h3 {
   font-weight: 700;
 }
 
+.overlay-cadastre,
+.map-selection,
+.overlay-relief {
+  scale: 0.83636 1;
+  transform-origin: center;
+}
+
 .layer-stage[data-active="1"] .overlay-cadastre,
 .layer-stage[data-active="2"] .overlay-cadastre,
 .layer-stage[data-active="3"] .overlay-cadastre {
@@ -1448,17 +1455,6 @@ h3 {
     --bbox-top: 13%;
     --bbox-side: 9%;
     --bbox-bottom: 13%;
-  }
-
-  .overlay-cadastre,
-  .map-selection,
-  .overlay-relief {
-    scale: 0.83636 1;
-    transform-origin: center;
-  }
-
-  .map-selection text {
-    display: none;
   }
 
   .layer-steps {
