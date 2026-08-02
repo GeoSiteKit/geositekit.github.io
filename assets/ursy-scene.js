@@ -4,3 +4,7 @@ document.querySelector('#ursy-parcels')?.insertAdjacentHTML('beforeend', ursySce
 document.querySelector('#ursy-buildings')?.insertAdjacentHTML('beforeend', ursyScene.buildings);
 document.querySelector('#ursy-selection')?.setAttribute('d', ursyScene.selected);
 document.querySelector('#ursy-contours')?.insertAdjacentHTML('beforeend', ursyScene.contours);
+document.querySelector('#hero-ursy-parcels')?.insertAdjacentHTML('beforeend', ursyScene.parcels);
+document.querySelector('#hero-ursy-buildings')?.insertAdjacentHTML('beforeend', ursyScene.buildings);
+document.querySelector('#hero-ursy-selection')?.setAttribute('d', ursyScene.selected);
+document.querySelector('#hero-ursy-contours')?.insertAdjacentHTML('beforeend', ursyScene.contours);

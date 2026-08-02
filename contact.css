@@ -266,8 +266,7 @@
   padding-top: 8px;
 }
 
-.direct-contact > p:not(.section-label),
-.sorting-note p {
+.direct-contact > p:not(.section-label) {
   color: var(--muted);
 }
 
@@ -282,21 +281,6 @@
   font-size: 17px;
   font-weight: 750;
   overflow-wrap: anywhere;
-}
-
-.sorting-note {
-  margin-top: 36px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-}
-
-.sorting-note strong {
-  font-size: 14px;
-}
-
-.sorting-note p {
-  margin-bottom: 0;
-  font-size: 13px;
 }
 
 .form-honey {

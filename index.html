@@ -11,7 +11,7 @@
   <meta property="og:image" content="https://www.geositekit.ch/assets/geositekit-mark-light.png?v=20260804">
   <title>GeoSiteKit - De la donnée au projet</title>
   <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260811">
+  <link rel="stylesheet" href="styles.css?v=20260813">
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -42,14 +42,38 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <p class="hero-kicker">Géodonnées suisses · Analyse de site · AutoCAD</p>
-        <div class="hero-heading">
-          <h1 id="hero-title">GeoSiteKit</h1>
-          <p class="hero-tagline">De la donnée au projet</p>
+      <div class="hero-scene" aria-hidden="true">
+        <svg class="hero-plan" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid slice">
+          <g id="hero-ursy-parcels" class="hero-parcels" fill="none" vector-effect="non-scaling-stroke"></g>
+          <g id="hero-ursy-buildings" class="hero-buildings" vector-effect="non-scaling-stroke"></g>
+          <g id="hero-ursy-contours" class="hero-contours" fill="none" vector-effect="non-scaling-stroke"></g>
+          <path id="hero-ursy-selection" class="hero-selection"/>
+        </svg>
+
+        <div class="hero-study-frame">
+          <i class="hero-corner corner-nw"></i>
+          <i class="hero-corner corner-ne"></i>
+          <i class="hero-corner corner-se"></i>
+          <i class="hero-corner corner-sw"></i>
+          <span class="hero-frame-label">Emprise d'étude</span>
+          <span class="hero-frame-radius">150 m</span>
+          <span class="hero-crosshair"></span>
         </div>
-        <div class="hero-details">
-          <p class="hero-copy">Une lecture claire du terrain pour préparer les premières décisions d'un projet paysager.</p>
+
+        <div class="hero-plan-meta">
+          <span>CH1903+ / LV95</span>
+          <span>1:1'000</span>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-copy-block">
+          <p class="hero-kicker">Géodonnées suisses · Analyse de site · AutoCAD</p>
+          <div class="hero-heading">
+            <h1 id="hero-title">GeoSiteKit</h1>
+            <p class="hero-tagline">De la donnée au projet.</p>
+          </div>
+          <p class="hero-copy">Lisez le terrain, cadrez les données et engagez le projet paysager directement dans AutoCAD.</p>
           <div class="hero-actions">
             <a class="button button-primary button-download" href="telechargement.html?download=1">Télécharger l'application</a>
             <a class="button button-ghost" href="mode-emploi.html">Ouvrir le mode d'emploi</a>
@@ -358,7 +382,7 @@
     </div>
   </footer>
 
-  <script src="assets/ursy-scene.js?v=20260804"></script>
+  <script src="assets/ursy-scene.js?v=20260813"></script>
   <script src="script.js?v=20260811"></script>
 </body>
 </html>
