@@ -23,7 +23,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
-  scroll-snap-type: y proximity;
 }
 
 body {
@@ -394,19 +393,14 @@ h3 {
 .hero-bbox {
   position: absolute;
   inset: 10% 5%;
+  overflow: hidden;
   border: 2px solid var(--border-strong);
-}
-
-.hero-bbox-ortho {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: cover;
-  clip-path: inset(0);
-  filter: grayscale(1) contrast(0.82);
-  opacity: 0.1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.69), rgba(255, 255, 255, 0.69)),
+    url("assets/jonction-orthophoto.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .bbox-label {
@@ -640,6 +634,7 @@ h3 {
 .map-viewport {
   --bbox-top: 15%;
   --bbox-side: 13%;
+  --bbox-bottom: 15%;
   position: relative;
   height: calc(100% - 48px);
   overflow: hidden;
@@ -666,6 +661,10 @@ h3 {
   color: #777d73;
 }
 
+.overlay-cadastre .cad-building {
+  fill: rgba(119, 125, 115, 0.08);
+}
+
 .overlay-relief {
   color: var(--accent);
 }
@@ -681,6 +680,29 @@ h3 {
 
 .overlay-trees {
   color: var(--accent-dark);
+}
+
+.map-selection {
+  z-index: 3;
+  color: var(--parcel);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.map-selection path {
+  fill: rgba(152, 185, 61, 0.14);
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-selection text {
+  fill: var(--parcel);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .layer-stage[data-active="1"] .overlay-cadastre,
@@ -731,12 +753,12 @@ h3 {
 
 .outside-bottom {
   inset: auto 0 0;
-  height: var(--bbox-top);
+  height: var(--bbox-bottom);
 }
 
 .outside-left {
   top: var(--bbox-top);
-  bottom: var(--bbox-top);
+  bottom: var(--bbox-bottom);
   left: 0;
   width: var(--bbox-side);
 }
@@ -744,7 +766,7 @@ h3 {
 .outside-right {
   top: var(--bbox-top);
   right: 0;
-  bottom: var(--bbox-top);
+  bottom: var(--bbox-bottom);
   width: var(--bbox-side);
 }
 
@@ -759,6 +781,10 @@ h3 {
 
 .layer-stage[data-active="3"] .map-analysis {
   opacity: 1;
+}
+
+.layer-stage[data-active="3"] .map-viewport {
+  --bbox-bottom: 32%;
 }
 
 .map-analysis {
@@ -798,10 +824,30 @@ h3 {
   vector-effect: non-scaling-stroke;
 }
 
+.profile-graphic {
+  position: absolute;
+  z-index: 4;
+  bottom: 2.5%;
+  left: 4%;
+  width: 56%;
+  height: 23%;
+  color: var(--accent-dark);
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.layer-stage[data-active="3"] .profile-graphic {
+  opacity: 1;
+}
+
+.profile-graphic .profile-values {
+  font-size: 15px;
+}
+
 .map-bbox {
   position: absolute;
   z-index: 4;
-  inset: var(--bbox-top) var(--bbox-side);
+  inset: var(--bbox-top) var(--bbox-side) var(--bbox-bottom);
   border: 3px solid var(--import);
   box-shadow: none;
   transition: inset 420ms ease;
@@ -818,27 +864,15 @@ h3 {
   font-size: 10px;
 }
 
-.map-parcel {
-  position: absolute;
-  top: 34%;
-  left: 35%;
-  width: 31%;
-  height: 27%;
-  overflow: visible;
-}
-
-.map-parcel path {
-  fill: rgba(152, 185, 61, 0.12);
-  stroke: var(--parcel);
-  stroke-width: 3;
-  stroke-linecap: square;
-  stroke-linejoin: miter;
-  vector-effect: non-scaling-stroke;
-}
-
 .map-center {
+  top: 47%;
+  left: 50%;
   border-color: var(--text);
   background: #ffffff;
+}
+
+.layer-stage[data-active="3"] .map-center {
+  top: 61%;
 }
 
 .map-center::before,
@@ -906,8 +940,6 @@ h3 {
   border-top: 1px solid var(--border);
   opacity: 0.42;
   scroll-margin-top: 98px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   transition: opacity 280ms ease;
 }
 
@@ -1154,87 +1186,40 @@ h3 {
   content: "";
 }
 
-.guide-band {
-  padding: 64px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: #ffffff;
-}
-
-.guide-inner {
-  display: grid;
-  grid-template-columns: 74px minmax(300px, 1fr) auto;
-  gap: 30px;
-  align-items: center;
-}
-
-.guide-mark {
-  width: 64px;
-  height: 64px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--accent-border);
-  border-radius: 8px;
-  background: var(--accent-soft);
-  color: var(--accent-dark);
-  font-size: 28px;
-  font-weight: 750;
-}
-
-.guide-inner h2 {
-  margin-bottom: 10px;
-  font-size: 32px;
-}
-
-.guide-inner p:last-child {
-  max-width: 760px;
-  margin-bottom: 0;
-  color: var(--muted);
-}
-
-.guide-status {
-  padding: 8px 12px;
-  border: 1px solid var(--border-strong);
-  border-radius: 5px;
-  background: #ffffff;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.contact-section {
-  padding: 78px 0;
+.conclusion-section {
+  padding: 112px 0 124px;
   border-top: 1px solid var(--border);
   background: #ffffff;
 }
 
-.contact-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
+.conclusion-inner {
+  max-width: 830px;
+  text-align: center;
 }
 
-.contact-inner h2 {
-  max-width: 700px;
-  margin-bottom: 0;
-  font-size: 36px;
-}
-
-.contact-inner .section-label {
-  color: var(--accent-dark);
-}
-
-.button-dark {
-  flex: 0 0 auto;
+.conclusion-rule {
+  width: 44px;
+  height: 3px;
+  margin: 0 auto 30px;
+  display: block;
   background: var(--accent);
-  color: #ffffff;
 }
 
-.button-dark:hover,
-.button-dark:focus-visible {
-  background: var(--accent-dark);
+.conclusion-inner .section-label {
+  color: var(--accent-dark);
+}
+
+.conclusion-inner h2 {
+  max-width: 760px;
+  margin: 0 auto 20px;
+  font-size: 42px;
+}
+
+.conclusion-inner > p:last-child {
+  max-width: 690px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 18px;
 }
 
 .site-footer {
@@ -1420,14 +1405,6 @@ h3 {
     display: none;
   }
 
-  .guide-inner {
-    grid-template-columns: 64px 1fr;
-  }
-
-  .guide-status {
-    grid-column: 2;
-    justify-self: start;
-  }
 }
 
 @media (max-width: 620px) {
@@ -1552,6 +1529,7 @@ h3 {
   .map-viewport {
     --bbox-top: 13%;
     --bbox-side: 9%;
+    --bbox-bottom: 13%;
   }
 
   .layer-steps {
@@ -1582,26 +1560,16 @@ h3 {
     display: none;
   }
 
-  .guide-inner {
-    grid-template-columns: 1fr;
+  .conclusion-section {
+    padding: 82px 0 90px;
   }
 
-  .guide-status {
-    grid-column: auto;
+  .conclusion-inner h2 {
+    font-size: 32px;
   }
 
-  .contact-inner {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .contact-inner h2 {
-    font-size: 30px;
-  }
-
-  .button-dark {
-    width: 100%;
-    white-space: normal;
+  .conclusion-inner > p:last-child {
+    font-size: 16px;
   }
 
   .footer-inner {

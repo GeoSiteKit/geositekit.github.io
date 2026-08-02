@@ -69,12 +69,9 @@ const updateActiveLayerFromScroll = () => {
 };
 
 const hashTarget = layerSteps.find((step) => `#${step.id}` === window.location.hash);
+const hashIndex = hashTarget ? Number(hashTarget.dataset.step) : null;
 if (hashTarget) {
-  const hashIndex = Number(hashTarget.dataset.step);
   setActiveLayer(hashIndex);
-  window.setTimeout(() => {
-    hashTarget.scrollIntoView({ behavior: 'auto', block: 'start' });
-  }, 80);
 }
 
 const revealItems = [...document.querySelectorAll('.reveal')];
@@ -132,6 +129,12 @@ const requestScrollUpdate = () => {
 window.addEventListener('scroll', requestScrollUpdate, { passive: true });
 window.addEventListener('resize', requestScrollUpdate);
 updateScrollEffects();
+if (hashTarget && hashIndex !== null) {
+  window.setTimeout(() => {
+    hashTarget.scrollIntoView({ behavior: 'auto', block: 'start' });
+    setActiveLayer(hashIndex);
+  }, 80);
+}
 
 document.querySelectorAll('.brand-mark img, .footer-brand img').forEach((image) => {
   image.addEventListener('error', () => {

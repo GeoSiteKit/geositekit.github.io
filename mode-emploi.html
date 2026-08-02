@@ -6,7 +6,7 @@
   <meta name="description" content="Guide d'utilisation interactif de GeoSiteKit pour AutoCAD.">
   <meta name="theme-color" content="#ffffff">
   <title>Guide d'utilisation GeoSiteKit</title>
-  <link rel="icon" href="assets/geositekit-mark-light.png?v=20260803" type="image/png">
+  <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="guide.css">
 </head>
@@ -17,13 +17,12 @@
     <div class="nav-shell">
       <a class="brand" href="index.html" aria-label="GeoSiteKit, accueil">
         <span class="brand-mark" aria-hidden="true">
-          <img src="assets/geositekit-mark-light.png?v=20260803" alt="" width="44" height="44">
+          <img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="44" height="44">
         </span>
         <span>GeoSiteKit</span>
       </a>
       <nav class="guide-site-nav" aria-label="Navigation secondaire">
         <a href="index.html">Présentation</a>
-        <a class="button button-primary" href="telechargement.html?download=1">Télécharger</a>
       </nav>
     </div>
   </header>
@@ -32,8 +31,8 @@
     <section class="guide-intro">
       <div class="guide-page-shell">
         <p class="section-label">Guide d'utilisation interactif</p>
-        <h1>Explorez l'interface avant de l'ouvrir dans AutoCAD.</h1>
-        <p>Cette maquette reprend le parcours principal de GeoSiteKit. Les commandes sont simulées : vous pouvez valider une parcelle, modifier le rayon, choisir des modules et parcourir les automatisations.</p>
+        <h1>Repérez chaque fonction avant de travailler dans AutoCAD.</h1>
+        <p>Cette reproduction de l'interface sert uniquement de guide. Les repères numérotés expliquent le parcours, les réglages globaux et les paramètres propres aux modules sans lancer d'importation.</p>
       </div>
     </section>
 
@@ -49,7 +48,7 @@
           <div class="app-body">
             <aside class="app-sidebar tour-target" data-tour-target="0">
               <div class="app-brand">
-                <img src="assets/geositekit-mark-light.png?v=20260803" alt="" width="30" height="30">
+                <img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="30" height="30">
                 <span><strong>GeoSiteKit</strong><small>Suite Géomatique</small></span>
               </div>
               <nav class="app-nav" aria-label="Navigation de la maquette">
@@ -72,22 +71,22 @@
 
                 <fieldset class="app-group location-group tour-target" data-tour-target="1">
                   <legend>1. Localisation</legend>
-                  <p id="location-message">Saisissez une commune et un numéro de parcelle.</p>
+                  <p class="location-ready">Parcelle 1432 localisée à Genève. Les données disponibles sont activées.</p>
                   <div class="location-form">
-                    <label>Commune<input id="mock-commune" type="text" value="Genève"></label>
-                    <label>N° Parcelle<input id="mock-parcel" type="text" value="1432"></label>
-                    <button class="app-primary" id="validate-location" type="button">Entrer</button>
+                    <label>Commune<input type="text" value="Genève" disabled></label>
+                    <label>N° Parcelle<input type="text" value="1432" disabled></label>
+                    <button class="app-primary" type="button" disabled>Modifier</button>
                   </div>
                   <button class="hotspot" type="button" data-tour="1" aria-label="Explication de la localisation">2</button>
                 </fieldset>
 
-                <fieldset class="app-group data-group is-locked tour-target" id="data-group" data-tour-target="3">
+                <fieldset class="app-group data-group tour-target" data-tour-target="3">
                   <legend>2. Données et Zone d'extraction</legend>
                   <div class="radius-row tour-target" data-tour-target="2">
                     <label for="mock-radius">Rayon d'import (m)</label>
                     <input id="mock-radius" type="range" min="50" max="500" step="50" value="150" disabled>
                     <output id="mock-radius-value">150 m</output>
-                    <button class="app-soft tour-target" id="open-preview" type="button" data-tour-target="4" disabled>Aperçu de la zone</button>
+                    <button class="app-soft tour-target" id="open-preview" type="button" data-tour-target="4">Aperçu de la zone</button>
                     <button class="hotspot" type="button" data-tour="2" aria-label="Explication du rayon">3</button>
                     <button class="hotspot hotspot-preview" type="button" data-tour="4" aria-label="Explication de l'aperçu">5</button>
                   </div>
@@ -95,7 +94,7 @@
 
                   <div class="mock-modules">
                     <label><input type="checkbox" disabled> Plan cadastral image <button class="gear" type="button" aria-label="Styles du plan cadastral">⚙</button></label>
-                    <label><input type="checkbox" disabled> Vecteurs cadastraux DXF <select disabled><option>Serveur officiel</option></select><button class="gear" type="button" aria-label="Styles des vecteurs">⚙</button></label>
+                    <label><input type="checkbox" checked disabled> Vecteurs cadastraux DXF <select disabled><option>Serveur officiel</option></select><button class="gear" type="button" aria-label="Styles des vecteurs">⚙</button></label>
                     <label><input type="checkbox" disabled> Arbres 2D <select disabled><option>Source disponible</option></select><button class="gear" type="button" aria-label="Styles des arbres">⚙</button></label>
                     <label><input type="checkbox" disabled> Orthophoto <select disabled><option>Ultra-rapide</option></select><button class="gear" type="button" aria-label="Options de l'orthophoto">⚙</button></label>
                     <label><input type="checkbox" disabled> Courbes de niveaux <button class="gear" type="button" aria-label="Styles des courbes">⚙</button></label>
@@ -104,24 +103,22 @@
                   <button class="hotspot hotspot-modules" type="button" data-tour="3" aria-label="Explication des modules">4</button>
                 </fieldset>
 
-                <button class="app-run tour-target" id="mock-run" type="button" data-tour-target="5" disabled>Lancer le téléchargement</button>
-                <div class="mock-progress" aria-hidden="true"><span id="mock-progress-bar"></span></div>
-                <p class="mock-status" id="mock-status">Validez d'abord la localisation.</p>
-                <button class="hotspot hotspot-run" type="button" data-tour="5" aria-label="Explication du lancement">6</button>
               </section>
 
               <section class="app-view" data-app-view="settings" aria-labelledby="settings-title">
                 <header class="internal-heading"><h2 id="settings-title">Paramètres</h2><button type="button" data-view="home" aria-label="Retour à l'accueil">⌂</button></header>
                 <div class="settings-tabs" role="tablist">
                   <button class="is-active" type="button" data-settings-tab="general">Général</button>
-                  <button type="button" data-settings-tab="connections">Connexions</button>
-                  <button type="button" data-settings-tab="layers">Styles de calques</button>
+                  <button type="button" data-settings-tab="connections">Connexions serveur</button>
+                  <button type="button" data-settings-tab="layers">Calques généraux</button>
+                  <button type="button" data-settings-tab="module">Module sélectionné</button>
                 </div>
-                <div class="settings-panel is-active" data-settings-panel="general">
+                <div class="settings-panel is-active tour-target" data-settings-panel="general" data-tour-target="5">
                   <h3>Paramètres généraux</h3>
-                  <label>Langue des calques<select><option>Français</option><option>Allemand</option></select></label>
-                  <label>Dossier de travail<input type="text" value="Dossier du dessin courant"></label>
-                  <label class="toggle-row"><input type="checkbox" checked> Vérifier les mises à jour au démarrage</label>
+                  <label>Préfixe des calques AutoCAD<input type="text" value="DNGT_" disabled></label>
+                  <label>Langue des couches cadastrales<select disabled><option>Français</option><option>Allemand</option><option>Italien</option></select></label>
+                  <label>Dossier Attachments<input type="text" value="Auto - dossier du dessin courant" disabled></label>
+                  <button class="hotspot hotspot-settings" type="button" data-tour="5" aria-label="Explication des paramètres généraux">6</button>
                 </div>
                 <div class="settings-panel" data-settings-panel="connections">
                   <h3>Connexions aux géoservices</h3>
@@ -130,23 +127,33 @@
                   <div class="server-row"><span>Cache GeoSiteKit</span><strong>Actif</strong></div>
                 </div>
                 <div class="settings-panel" data-settings-panel="layers">
-                  <h3>Styles de calques</h3>
+                  <h3>Styles des calques généraux</h3>
                   <div class="layer-style-row"><i style="--swatch:#98b93d"></i><span>Emprise d'import</span><code>GSK_CONSTRUCTION</code></div>
                   <div class="layer-style-row"><i style="--swatch:#64748b"></i><span>Courbes de niveaux</span><code>GSK_MNT_COURBES</code></div>
                   <div class="layer-style-row"><i style="--swatch:#2c3029"></i><span>Bâtiments</span><code>GSK_CAD_BATI</code></div>
                 </div>
+                <div class="settings-panel module-settings-panel tour-target" data-settings-panel="module" data-tour-target="6">
+                  <h3>Courbes de niveaux</h3>
+                  <div class="module-options-row"><span>Géométrie</span><strong>2D (Z=0)</strong></div>
+                  <div class="module-options-row"><span>Équidistance</span><strong>1.0 m</strong></div>
+                  <div class="module-options-row"><span>Transformation</span><strong>Polylignes</strong></div>
+                  <div class="module-options-row"><span>Simplification</span><strong>0 %</strong></div>
+                  <div class="layer-style-row"><i style="--swatch:#98b93d"></i><span>Courbes principales</span><code>DNGT_MNT_COURBES</code></div>
+                  <div class="layer-style-row"><i style="--swatch:#7f9f2f"></i><span>Textes d'altitude</span><code>DNGT_MNT_TEXTE</code></div>
+                  <button class="hotspot hotspot-settings" type="button" data-tour="6" aria-label="Explication des paramètres du module">7</button>
+                </div>
               </section>
 
-              <section class="app-view tour-target" data-app-view="automation" data-tour-target="6" aria-labelledby="automation-title">
+              <section class="app-view tour-target" data-app-view="automation" data-tour-target="7" aria-labelledby="automation-title">
                 <header class="internal-heading"><h2 id="automation-title">Automatisation</h2><button type="button" data-view="home" aria-label="Retour à l'accueil">⌂</button></header>
                 <p class="automation-intro">Les automatisations complètent la lecture du site et produisent des éléments directement exploitables dans AutoCAD.</p>
                 <div class="automation-table">
-                  <div class="automation-head"><span>Nom</span><span>Description</span><span>État</span><span>Actions</span></div>
-                  <div><strong>Points d'altitude MNT</strong><span>Place des blocs altimétriques renseignés.</span><em>Disponible</em><button type="button">Ouvrir</button></div>
-                  <div><strong>Profils de terrain</strong><span>Crée des profils depuis des tracés ou polylignes.</span><em>Disponible</em><button type="button">Ouvrir</button></div>
-                  <div><strong>Analyse solaire du site</strong><span>Génère une heatmap d'ensoleillement.</span><em>Disponible</em><button type="button">Ouvrir</button></div>
+                  <div class="automation-head"><span>Nom</span><span>Description</span><span>État</span></div>
+                  <div><strong>Points d'altitude MNT</strong><span>Place des blocs altimétriques renseignés.</span><em>Disponible</em></div>
+                  <div><strong>Profils de terrain</strong><span>Crée des profils depuis des tracés ou polylignes.</span><em>Disponible</em></div>
+                  <div><strong>Analyse solaire du site</strong><span>Génère une heatmap d'ensoleillement.</span><em>Disponible</em></div>
                 </div>
-                <button class="hotspot hotspot-automation" type="button" data-tour="6" aria-label="Explication des automatisations">7</button>
+                <button class="hotspot hotspot-automation" type="button" data-tour="7" aria-label="Explication des automatisations">8</button>
               </section>
 
               <section class="app-view" data-app-view="license" aria-labelledby="license-title">
@@ -157,7 +164,7 @@
 
               <section class="app-view" data-app-view="about" aria-labelledby="about-title">
                 <header class="internal-heading"><h2 id="about-title">À propos</h2><button type="button" data-view="home" aria-label="Retour à l'accueil">⌂</button></header>
-                <div class="about-content"><img src="assets/geositekit-mark-light.png?v=20260803" alt="Logo GeoSiteKit"><h3>GeoSiteKit</h3><p>De la donnée au projet.</p><a href="mailto:contact@geositekit.ch">contact@geositekit.ch</a></div>
+                <div class="about-content"><img src="assets/geositekit-mark-light.png?v=20260804" alt="Logo GeoSiteKit"><h3>GeoSiteKit</h3><p>De la donnée au projet.</p><a href="mailto:contact@geositekit.ch">contact@geositekit.ch</a></div>
               </section>
             </div>
           </div>
@@ -166,7 +173,6 @@
             <div class="preview-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-title">
               <header><strong id="preview-title">Aperçu de la zone</strong><button id="close-preview" type="button" aria-label="Fermer">×</button></header>
               <div class="preview-map">
-                <img src="assets/jonction-orthophoto.jpg" alt="Orthophoto de la Jonction à Genève">
                 <svg viewBox="0 0 600 330" preserveAspectRatio="none" aria-hidden="true"><path d="M218 90L342 74L408 146L366 240L232 228L182 150Z"/><rect x="86" y="44" width="428" height="244"/><circle cx="300" cy="165" r="10"/><path d="M280 165H320M300 145V185"/></svg>
               </div>
               <div class="preview-controls"><label>Rayon <input id="preview-radius" type="range" min="50" max="500" step="50" value="150"></label><output id="preview-radius-value">150 m</output><button class="app-primary" id="apply-preview" type="button">Appliquer</button></div>
@@ -175,7 +181,7 @@
         </div>
 
         <aside class="tour-panel" aria-live="polite">
-          <div class="tour-progress"><span id="tour-count">1 / 7</span><i><b id="tour-progress"></b></i></div>
+          <div class="tour-progress"><span id="tour-count">1 / 8</span><i><b id="tour-progress"></b></i></div>
           <p class="section-label" id="tour-kicker">Navigation</p>
           <h2 id="tour-title">Gardez les fonctions principales à portée de main.</h2>
           <p id="tour-copy">La barre latérale conserve l'accès à l'accueil, aux paramètres, aux automatisations et à la licence sans interrompre le travail en cours.</p>
@@ -184,6 +190,7 @@
             <button id="tour-next" type="button">Étape suivante <span>→</span></button>
           </div>
           <small>Vous pouvez aussi cliquer directement sur les repères numérotés dans l'interface.</small>
+          <p class="guide-disclaimer">Cette page explique le fonctionnement : aucune donnée n'est téléchargée et aucune commande n'est envoyée à AutoCAD.</p>
         </aside>
       </div>
     </section>
@@ -191,7 +198,7 @@
 
   <footer class="site-footer">
     <div class="guide-page-shell footer-inner">
-      <a class="footer-brand" href="index.html"><img src="assets/geositekit-mark-light.png?v=20260803" alt="" width="34" height="34"><span>GeoSiteKit</span></a>
+      <a class="footer-brand" href="index.html"><img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="34" height="34"><span>GeoSiteKit</span></a>
       <p>De la donnée au projet.</p>
       <p>© <span id="year"></span> GeoSiteKit</p>
     </div>
