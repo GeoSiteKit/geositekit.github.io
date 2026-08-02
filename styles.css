@@ -303,8 +303,8 @@ input {
 .hero-study-frame {
   position: absolute;
   top: 20%;
-  right: max(5vw, calc((100% - var(--max-width)) / 2));
-  width: min(40vw, 560px);
+  right: max(2vw, calc((100% - var(--max-width)) / 2 - 80px));
+  width: min(36vw, 520px);
   height: 56%;
   border: 1px solid rgba(152, 185, 61, 0.44);
 }
@@ -447,10 +447,10 @@ input {
   padding: 42px 44px 44px;
   border: 0;
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
   box-shadow: none;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 h1,
