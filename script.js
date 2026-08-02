@@ -5,6 +5,7 @@ const hero = document.querySelector('.hero');
 const layerLayout = document.querySelector('.layer-layout');
 const layerStage = document.querySelector('#layer-stage');
 const layerSteps = [...document.querySelectorAll('.layer-step')];
+const layerLegendItems = [...document.querySelectorAll('[data-legend]')];
 const parallaxLayers = [...document.querySelectorAll('.parallax-layer')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -32,26 +33,48 @@ const setActiveLayer = (index) => {
   layerSteps.forEach((step) => {
     step.classList.toggle('is-active', Number(step.dataset.step) === index);
   });
-  document.querySelectorAll('[data-legend]').forEach((item) => {
+  layerLegendItems.forEach((item) => {
     item.classList.toggle('is-active', Number(item.dataset.legend) === index);
   });
 };
 
-if ('IntersectionObserver' in window && layerSteps.length) {
-  const stepObserver = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-    if (visible) {
-      setActiveLayer(Number(visible.target.dataset.step));
+layerLegendItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    const index = Number(item.dataset.legend);
+    const target = layerSteps.find((step) => Number(step.dataset.step) === index);
+    if (target) {
+      target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      setActiveLayer(index);
     }
-  }, {
-    rootMargin: '-24% 0px -48% 0px',
-    threshold: [0.1, 0.3, 0.6]
   });
+});
 
-  layerSteps.forEach((step) => stepObserver.observe(step));
+const updateActiveLayerFromScroll = () => {
+  if (!layerSteps.length || !layerStage) return;
+
+  const stageBottom = layerStage.getBoundingClientRect().bottom;
+  const readingLine = window.innerWidth <= 860
+    ? Math.min(window.innerHeight - 80, stageBottom + window.innerHeight * 0.16)
+    : window.innerHeight * 0.5;
+
+  const closest = layerSteps
+    .map((step) => {
+      const marker = step.querySelector('.step-marker');
+      const anchor = marker ? marker.getBoundingClientRect().top : step.getBoundingClientRect().top;
+      return { step, distance: Math.abs(anchor - readingLine) };
+    })
+    .sort((a, b) => a.distance - b.distance)[0];
+
+  if (closest) setActiveLayer(Number(closest.step.dataset.step));
+};
+
+const hashTarget = layerSteps.find((step) => `#${step.id}` === window.location.hash);
+if (hashTarget) {
+  const hashIndex = Number(hashTarget.dataset.step);
+  setActiveLayer(hashIndex);
+  window.setTimeout(() => {
+    hashTarget.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }, 80);
 }
 
 const revealItems = [...document.querySelectorAll('.reveal')];
@@ -93,6 +116,8 @@ const updateScrollEffects = () => {
       });
     }
   }
+
+  updateActiveLayerFromScroll();
 
   ticking = false;
 };
