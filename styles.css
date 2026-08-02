@@ -264,10 +264,19 @@ input {
   max-width: none;
 }
 
+.hero-plan-extension-clip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(105% - min(66vw, 1040px));
+  overflow: hidden;
+}
+
 .hero-plan-extension {
   position: absolute;
   top: -8%;
-  left: -4%;
+  left: -4vw;
   width: min(68vw, 1100px);
   height: 116%;
   max-width: none;
@@ -1410,6 +1419,10 @@ h3 {
 }
 
 @media (max-width: 1040px) {
+  .hero-plan-extension-clip {
+    width: calc(118% - 82vw);
+  }
+
   .hero-plan {
     right: -18%;
     width: 82vw;
@@ -1485,6 +1498,10 @@ h3 {
   }
 
   .hero-plan-extension {
+    display: none;
+  }
+
+  .hero-plan-extension-clip {
     display: none;
   }
 
