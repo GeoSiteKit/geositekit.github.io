@@ -814,13 +814,6 @@ h3 {
   font-weight: 700;
 }
 
-.overlay-cadastre,
-.map-selection,
-.overlay-relief {
-  scale: 0.83636 1;
-  transform-origin: center;
-}
-
 .layer-stage[data-active="1"] .overlay-cadastre,
 .layer-stage[data-active="2"] .overlay-cadastre,
 .layer-stage[data-active="3"] .overlay-cadastre {
