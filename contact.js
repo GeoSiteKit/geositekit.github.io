@@ -13,7 +13,11 @@ const formSuccess = document.querySelector('#form-success');
 const categories = {
   contact: { label: 'Contact', mailSubject: 'Contact' },
   licence: { label: 'Accès licence', mailSubject: 'Accès licence' },
-  bug: { label: "Signalement d'un bug", mailSubject: "Signalement d'un bug" }
+  bug: { label: "Signalement d'un bug", mailSubject: "Signalement d'un bug" },
+  suggestion: {
+    label: "Proposition d'amélioration ou de fonctionnalité",
+    mailSubject: "Proposition d'amélioration"
+  }
 };
 
 const activeCategory = () => requestTypes.find((input) => input.checked)?.value || 'contact';

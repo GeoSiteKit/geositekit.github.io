@@ -82,7 +82,7 @@
   margin: 0 0 26px;
   padding: 0;
   display: grid;
-  grid-template-columns: 0.72fr 1.35fr 0.86fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   border: 0;
 }

@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#ffffff">
   <title>Guide d'utilisation GeoSiteKit</title>
   <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260811">
-  <link rel="stylesheet" href="guide.css?v=20260811">
+  <link rel="stylesheet" href="styles.css?v=20260820">
+  <link rel="stylesheet" href="guide.css?v=20260820">
 </head>
 <body class="guide-page">
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -201,6 +201,124 @@
           <small>Vous pouvez aussi cliquer directement sur les repères numérotés dans l'interface.</small>
           <p class="guide-disclaimer">Cette page explique le fonctionnement : aucune donnée n'est téléchargée et aucune commande n'est envoyée à AutoCAD.</p>
         </aside>
+      </div>
+    </section>
+
+    <section class="control-reference" id="reference-commandes" aria-labelledby="reference-title">
+      <div class="guide-page-shell">
+        <div class="reference-heading">
+          <div>
+            <p class="section-label">Référence des commandes</p>
+            <h2 id="reference-title">Chaque bouton et chaque réglage, expliqués simplement.</h2>
+          </div>
+          <p>Dépliez une rubrique pour retrouver la fonction d'une commande, le résultat attendu et son effet dans AutoCAD.</p>
+        </div>
+
+        <div class="reference-groups">
+          <details open>
+            <summary>Navigation générale</summary>
+            <dl class="reference-list">
+              <div><dt>Accueil</dt><dd>Revient à l'écran principal, où la parcelle, le rayon d'import et les modules de données sont préparés.</dd></div>
+              <div><dt>Paramètres</dt><dd>Ouvre les réglages communs à l'application, les connexions aux serveurs et les styles de calques AutoCAD.</dd></div>
+              <div><dt>Automatisation</dt><dd>Affiche les outils d'analyse qui produisent des éléments de projet, comme les altitudes, les profils de terrain et l'ensoleillement.</dd></div>
+              <div><dt>Licence</dt><dd>Indique si la licence du poste est active et si une validation locale reste disponible hors ligne.</dd></div>
+              <div><dt>À propos</dt><dd>Affiche l'identité de GeoSiteKit, sa version et l'adresse de contact.</dd></div>
+              <div><dt>Bouton maison</dt><dd>Dans une page interne, ramène directement à l'accueil sans fermer l'application.</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Localisation et emprise d'import</summary>
+            <dl class="reference-list">
+              <div><dt>Commune</dt><dd>Définit la commune dans laquelle GeoSiteKit doit rechercher la parcelle et les géoservices disponibles.</dd></div>
+              <div><dt>N° Parcelle</dt><dd>Identifie la parcelle de référence. Elle sert de point de départ à la localisation et à l'aperçu, sans limiter automatiquement l'import à son contour.</dd></div>
+              <div><dt>Modifier</dt><dd>Relance la recherche avec la commune et le numéro saisis, puis actualise les modules disponibles pour cette zone.</dd></div>
+              <div><dt>Message de localisation</dt><dd>Confirme la parcelle trouvée et signale que les données compatibles ont été détectées.</dd></div>
+              <div><dt>Rayon d'import</dt><dd>Règle la demi-largeur de la zone carrée importée. La valeur définit directement la BBOX envoyée aux services géographiques.</dd></div>
+              <div><dt>Valeur du rayon</dt><dd>Affiche en mètres la dimension choisie. Elle reste synchronisée entre l'accueil et la fenêtre d'aperçu.</dd></div>
+              <div><dt>Centre de l'import</dt><dd>Affiche les coordonnées suisses LV95 utilisées comme centre exact de la BBOX.</dd></div>
+              <div><dt>Aperçu de la zone</dt><dd>Ouvre une carte légère avec la parcelle, le point central et le rectangle réellement téléchargé. Cette fenêtre sert uniquement à contrôler le cadrage.</dd></div>
+              <div><dt>Curseur de l'aperçu</dt><dd>Permet d'essayer visuellement un autre rayon. Toute modification est répercutée sur le curseur principal.</dd></div>
+              <div><dt>Appliquer</dt><dd>Valide le rayon affiché dans l'aperçu et revient à l'écran principal avec la même valeur.</dd></div>
+              <div><dt>Fermer l'aperçu</dt><dd>Ferme la fenêtre sans lancer d'importation. Le dernier rayon synchronisé reste visible dans l'accueil.</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Modules de données</summary>
+            <dl class="reference-list">
+              <div><dt>Case à cocher</dt><dd>Ajoute ou retire le module de la prochaine préparation de données. Une case grisée indique que la source n'est pas disponible pour la zone choisie.</dd></div>
+              <div><dt>Plan cadastral image</dt><dd>Prépare une image cadastrale géoréférencée comme fond de lecture, lorsque le service concerné est disponible.</dd></div>
+              <div><dt>Vecteurs cadastraux DXF</dt><dd>Importe les parcelles, bâtiments et autres géométries cadastrales sous forme d'objets AutoCAD organisés par calques.</dd></div>
+              <div><dt>Arbres 2D</dt><dd>Place les arbres disponibles sous forme de blocs ou de géométries 2D exploitables dans le plan.</dd></div>
+              <div><dt>Orthophoto</dt><dd>Télécharge l'image aérienne correspondant exactement à la BBOX et prépare son insertion géoréférencée dans le dessin.</dd></div>
+              <div><dt>Courbes de niveaux</dt><dd>Produit les courbes du terrain à partir du modèle altimétrique disponible, avec l'équidistance et le style choisis.</dd></div>
+              <div><dt>Jeux de données 3D</dt><dd>Prépare les données tridimensionnelles proposées pour la zone, par exemple le terrain, les bâtiments ou d'autres jeux compatibles.</dd></div>
+              <div><dt>Liste des serveurs</dt><dd>Choisit la source utilisée par un module lorsqu'il en existe plusieurs : service officiel, serveur cantonal, cache ou source optimisée.</dd></div>
+              <div><dt>Bouton engrenage</dt><dd>Ouvre les paramètres propres au module de la ligne : géométrie, transformation, précision et styles de calques selon les possibilités du module.</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Paramètres globaux</summary>
+            <dl class="reference-list">
+              <div><dt>Onglet Général</dt><dd>Regroupe les conventions qui s'appliquent à l'ensemble des imports, indépendamment du module choisi.</dd></div>
+              <div><dt>Préfixe des calques AutoCAD</dt><dd>Ajoute un préfixe commun aux calques créés par GeoSiteKit afin de les identifier et de les regrouper dans le dessin.</dd></div>
+              <div><dt>Langue des couches cadastrales</dt><dd>Détermine la langue utilisée pour nommer les catégories et calques cadastraux lorsque la source fournit plusieurs langues.</dd></div>
+              <div><dt>Dossier Attachments</dt><dd>Définit l'emplacement des images et fichiers externes liés au DWG. Le mode automatique utilise le dossier associé au dessin courant.</dd></div>
+              <div><dt>Onglet Connexions serveur</dt><dd>Présente l'état des géoservices et du cache. « Disponible » confirme l'accès, « Automatique » laisse GeoSiteKit choisir la source adaptée et « Actif » autorise l'utilisation du cache.</dd></div>
+              <div><dt>Onglet Calques généraux</dt><dd>Centralise les styles communs, notamment l'emprise d'import, les bâtiments et les courbes de niveaux.</dd></div>
+              <div><dt>Pastille de couleur</dt><dd>Montre la couleur AutoCAD attribuée à la catégorie concernée.</dd></div>
+              <div><dt>Nom de calque</dt><dd>Indique le calque AutoCAD dans lequel les objets correspondants seront créés.</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Paramètres propres aux modules</summary>
+            <dl class="reference-list">
+              <div><dt>Onglet Module sélectionné</dt><dd>Affiche uniquement les réglages du module ouvert depuis son bouton engrenage.</dd></div>
+              <div><dt>Géométrie</dt><dd>Choisit la forme produite dans AutoCAD. Pour les courbes, le mode 2D place les objets à Z=0 tout en conservant l'altitude comme information associée lorsque le module le prévoit.</dd></div>
+              <div><dt>Équidistance</dt><dd>Définit la différence d'altitude entre deux courbes successives. Une valeur plus petite donne davantage de détails mais crée plus d'objets.</dd></div>
+              <div><dt>Transformation</dt><dd>Détermine le type d'objet AutoCAD final, par exemple des polylignes directement modifiables.</dd></div>
+              <div><dt>Simplification</dt><dd>Réduit éventuellement le nombre de sommets. À 0 %, la géométrie source est conservée sans simplification volontaire.</dd></div>
+              <div><dt>Courbes principales</dt><dd>Définit le calque et le style utilisés pour les lignes de relief importées.</dd></div>
+              <div><dt>Textes d'altitude</dt><dd>Définit le calque réservé aux valeurs altimétriques associées aux courbes.</dd></div>
+              <div><dt>Réglages variables</dt><dd>Le contenu de cette page change selon le module : seuls les paramètres réellement applicables à la donnée choisie sont proposés.</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Préparation et transfert vers AutoCAD</summary>
+            <dl class="reference-list">
+              <div><dt>Lancer le téléchargement</dt><dd>Démarre uniquement les modules cochés, pour la BBOX et les sources affichées. Les fichiers sont préparés avant l'exécution du script AutoCAD.</dd></div>
+              <div><dt>Barre de progression</dt><dd>Montre l'avancement global de la préparation et permet de distinguer un téléchargement en cours d'une opération terminée.</dd></div>
+              <div><dt>Message d'état</dt><dd>Indique si les données sont prêtes, si une source est indisponible ou si une action de l'utilisateur est nécessaire.</dd></div>
+              <div><dt>Retour dans AutoCAD</dt><dd>Une fois les données prêtes, le script transmis par la commande SWISSGEO crée ou attache les objets dans le dessin courant.</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Automatisations</summary>
+            <dl class="reference-list">
+              <div><dt>Points d'altitude MNT</dt><dd>Permet de choisir des positions sur une carte, lit l'altitude du terrain et place dans AutoCAD le bloc altimétrique avec l'attribut d'altitude existante renseigné.</dd></div>
+              <div><dt>Profils de terrain</dt><dd>Crée un profil sans exagération verticale à partir d'un tracé défini dans GeoSiteKit ou d'une polyligne du dessin, puis le place à gauche de la zone d'import.</dd></div>
+              <div><dt>Analyse solaire du site</dt><dd>Calcule l'ensoleillement sur une emprise donnée en tenant compte du terrain, des bâtiments et, par défaut, de la végétation disponible.</dd></div>
+              <div><dt>État de l'automatisation</dt><dd>Indique si l'outil peut être utilisé avec la parcelle et les données actuellement chargées.</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Licence et informations</summary>
+            <dl class="reference-list">
+              <div><dt>Licence valide</dt><dd>Confirme que ce poste est autorisé à utiliser l'application.</dd></div>
+              <div><dt>Validation locale</dt><dd>Permet à l'application de continuer à reconnaître temporairement la licence lorsque la connexion au serveur est indisponible.</dd></div>
+              <div><dt>Utilisateur</dt><dd>Identifie le poste ou le titulaire auquel la licence est associée.</dd></div>
+              <div><dt>Version</dt><dd>Indique le canal installé, par exemple une version stable destinée à l'utilisation courante.</dd></div>
+              <div><dt>État</dt><dd>Résume le statut actuel de la licence : active, expirée, révoquée ou en attente selon le cas.</dd></div>
+              <div><dt>Adresse de contact</dt><dd>Ouvre la messagerie pour joindre l'assistance GeoSiteKit.</dd></div>
+            </dl>
+          </details>
+        </div>
       </div>
     </section>
   </main>
