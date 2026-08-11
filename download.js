@@ -45,20 +45,16 @@ const formatSize = (bytes) => {
   return `${Math.round(value / 1024 / 1024)} Mo · Installateur MSI · Windows 64 bits`;
 };
 
-const normalizeRelease = (manifest) => ({
-  version: String(manifest?.version || FALLBACK_RELEASE.version),
-  size: Number(
-    manifest?.installer_size_bytes
-    || manifest?.size_bytes
-    || manifest?.size
-    || FALLBACK_RELEASE.size
-  ),
-  download_url: String(
-    manifest?.installer_url
-    || manifest?.migration_url
-    || FALLBACK_RELEASE.download_url
-  )
-});
+const normalizeRelease = (manifest) => {
+  const installerUrl = String(manifest?.installer_url || '').trim();
+  if (!installerUrl) return FALLBACK_RELEASE;
+
+  return {
+    version: String(manifest?.version || FALLBACK_RELEASE.version),
+    size: Number(manifest?.installer_size_bytes || FALLBACK_RELEASE.size),
+    download_url: installerUrl
+  };
+};
 
 const loadRelease = async () => {
   try {
