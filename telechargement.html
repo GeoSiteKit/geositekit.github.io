@@ -41,16 +41,16 @@
       <div class="download-shell">
         <p class="section-label">Application Windows · AutoCAD</p>
         <h1>Télécharger GeoSiteKit</h1>
-        <p class="download-lead">L'archive contient l'application autonome, son environnement d'exécution et le fichier LISP à charger dans AutoCAD.</p>
+        <p class="download-lead">L'installateur configure GeoSiteKit et son intégration AutoCAD automatiquement pour votre compte Windows, sans droits administrateur.</p>
 
         <div class="download-action-row">
           <a class="button button-primary download-now" id="download-now"
-             href="https://github.com/SwissgeoApp/swissgeo-releases/releases/download/v1.6.22/SwissGeo-v1.6.22-win64.zip">
+             href="https://github.com/GeoSiteKit/geositekit-releases/releases/download/v1.7.1/GeoSiteKit-v1.7.1-win64.msi">
             Télécharger la dernière version
           </a>
           <div class="release-meta" aria-live="polite">
             <strong id="release-version">Version stable</strong>
-            <span id="release-size">Archive Windows 64 bits</span>
+            <span id="release-size">Installateur MSI · Windows 64 bits</span>
           </div>
         </div>
 
@@ -64,37 +64,30 @@
       <div class="download-shell install-layout">
         <div class="install-heading">
           <p class="section-label">Installation</p>
-          <h2 id="install-title">Quatre étapes, sans installateur.</h2>
-          <p>GeoSiteKit est distribué sous forme d'application portable. Conservez son dossier complet : les composants inclus sont nécessaires à son fonctionnement.</p>
+          <h2 id="install-title">Trois étapes, sans droits administrateur.</h2>
+          <p>Le MSI installe tous les composants dans votre profil Windows et prépare automatiquement la commande GeoSiteKit dans AutoCAD.</p>
         </div>
 
         <ol class="install-steps">
           <li>
             <span>01</span>
             <div>
-              <h3>Extraire l'archive</h3>
-              <p>Ouvrez le fichier ZIP téléchargé, puis extrayez entièrement le dossier <code>SWISSGEO_APP</code>.</p>
+              <h3>Télécharger le MSI</h3>
+              <p>Cliquez sur le bouton ci-dessus pour récupérer la dernière version depuis le dépôt officiel GeoSiteKit.</p>
             </div>
           </li>
           <li>
             <span>02</span>
             <div>
-              <h3>Placer l'application</h3>
-              <p>Déplacez ce dossier directement dans <code>C:\</code>. Le chemin final doit être <code>C:\SWISSGEO_APP</code>.</p>
+              <h3>Lancer l'installation</h3>
+              <p>Double-cliquez sur le fichier <code>GeoSiteKit-v1.7.1-win64.msi</code>. L'installation se fait uniquement pour votre compte et ne demande pas de droits administrateur.</p>
             </div>
           </li>
           <li>
             <span>03</span>
             <div>
-              <h3>Charger le fichier LISP</h3>
-              <p>Dans AutoCAD, lancez <code>APPLOAD</code> et chargez <code>C:\SWISSGEO_APP\SwissGeo.lsp</code>. Ajoutez-le à la suite de démarrage pour le charger automatiquement.</p>
-            </div>
-          </li>
-          <li>
-            <span>04</span>
-            <div>
-              <h3>Lancer GeoSiteKit</h3>
-              <p>Enregistrez le dessin DWG, puis saisissez la commande <code>SWISSGEO</code> dans AutoCAD.</p>
+              <h3>Lancer GeoSiteKit dans AutoCAD</h3>
+              <p>Redémarrez AutoCAD, ouvrez un dessin enregistré puis saisissez <code>GEOSITEKIT</code>. Aucun chargement manuel avec <code>APPLOAD</code> n'est nécessaire.</p>
             </div>
           </li>
         </ol>
@@ -105,9 +98,9 @@
       <div class="download-shell note-grid">
         <div>
           <p class="section-label">À savoir</p>
-          <h2>Une transition de nom maîtrisée.</h2>
+          <h2>Sécurité Windows.</h2>
         </div>
-        <p>Le paquet public actuel conserve temporairement le nom de dossier <code>SWISSGEO_APP</code> et la commande <code>SWISSGEO</code>. La page de téléchargement basculera vers le dépôt GeoSiteKit dès la migration de l'application.</p>
+        <p>L'installateur ne demande pas de droits administrateur. Comme cette première version MSI n'est pas encore signée, Windows ou la politique de votre entreprise peut toutefois afficher ou bloquer un avertissement de réputation avant son lancement.</p>
       </div>
     </section>
   </main>
@@ -123,6 +116,6 @@
     </div>
   </footer>
 
-  <script src="download.js?v=20260811"></script>
+  <script src="download.js?v=20260811-2"></script>
 </body>
 </html>
