@@ -1,8 +1,8 @@
-const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/SwissgeoApp/swissgeo-releases/main/latest.json';
+const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/GeoSiteKit/geositekit-releases/main/latest.json';
 const FALLBACK_RELEASE = {
-  version: '1.6.22',
-  size: 263630068,
-  download_url: 'https://github.com/SwissgeoApp/swissgeo-releases/releases/download/v1.6.22/SwissGeo-v1.6.22-win64.zip'
+  version: '1.7.1',
+  size: 220217444,
+  download_url: 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/v1.7.1/GeoSiteKit-v1.7.1-win64.msi'
 };
 
 const downloadLink = document.querySelector('#download-now');
@@ -41,14 +41,23 @@ document.addEventListener('keydown', (event) => {
 
 const formatSize = (bytes) => {
   const value = Number(bytes);
-  if (!Number.isFinite(value) || value <= 0) return 'Archive Windows 64 bits';
-  return `${Math.round(value / 1024 / 1024)} Mo · Windows 64 bits`;
+  if (!Number.isFinite(value) || value <= 0) return 'Installateur MSI · Windows 64 bits';
+  return `${Math.round(value / 1024 / 1024)} Mo · Installateur MSI · Windows 64 bits`;
 };
 
 const normalizeRelease = (manifest) => ({
   version: String(manifest?.version || FALLBACK_RELEASE.version),
-  size: Number(manifest?.size_bytes || manifest?.size || FALLBACK_RELEASE.size),
-  download_url: String(manifest?.download_url || FALLBACK_RELEASE.download_url)
+  size: Number(
+    manifest?.installer_size_bytes
+    || manifest?.size_bytes
+    || manifest?.size
+    || FALLBACK_RELEASE.size
+  ),
+  download_url: String(
+    manifest?.installer_url
+    || manifest?.migration_url
+    || FALLBACK_RELEASE.download_url
+  )
 });
 
 const loadRelease = async () => {
@@ -69,20 +78,14 @@ const displayRelease = (release) => {
 
 const startDownload = (release) => {
   if (statusLabel) statusLabel.textContent = `Téléchargement de la version ${release.version} lancé depuis GitHub.`;
-  const frame = document.createElement('iframe');
-  frame.hidden = true;
-  frame.title = 'Téléchargement GeoSiteKit';
-  frame.src = release.download_url;
-  document.body.appendChild(frame);
-  window.setTimeout(() => frame.remove(), 120000);
+  window.location.assign(release.download_url);
 };
 
 loadRelease().then((release) => {
   displayRelease(release);
 
-  downloadLink?.addEventListener('click', (event) => {
-    event.preventDefault();
-    startDownload(release);
+  downloadLink?.addEventListener('click', () => {
+    if (statusLabel) statusLabel.textContent = `Téléchargement de la version ${release.version} lancé depuis GitHub.`;
   });
 
   const params = new URLSearchParams(window.location.search);
