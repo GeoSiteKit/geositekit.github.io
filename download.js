@@ -1,8 +1,9 @@
-const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/GeoSiteKit/geositekit-releases/main/latest.json';
+const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/GeoSiteKit/geositekit-releases/main/latest-beta.json';
+const RELEASE_DOWNLOAD_PREFIX = 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/';
 const FALLBACK_RELEASE = {
-  version: '1.7.1',
-  size: 220217444,
-  download_url: 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/v1.7.1/GeoSiteKit-v1.7.1-win64.msi'
+  version: '1.7.2-beta.1',
+  size: 300781720,
+  download_url: 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/v1.7.2-beta.1/GeoSiteKit-v1.7.2-beta.1-win64.zip'
 };
 
 const downloadLink = document.querySelector('#download-now');
@@ -41,18 +42,19 @@ document.addEventListener('keydown', (event) => {
 
 const formatSize = (bytes) => {
   const value = Number(bytes);
-  if (!Number.isFinite(value) || value <= 0) return 'Installateur MSI · Windows 64 bits';
-  return `${Math.round(value / 1024 / 1024)} Mo · Installateur MSI · Windows 64 bits`;
+  if (!Number.isFinite(value) || value <= 0) return 'Archive ZIP · Windows 64 bits';
+  return `${Math.round(value / 1024 / 1024)} Mo · Archive ZIP · Windows 64 bits`;
 };
 
 const normalizeRelease = (manifest) => {
-  const installerUrl = String(manifest?.installer_url || '').trim();
-  if (!installerUrl) return FALLBACK_RELEASE;
+  const downloadUrl = String(manifest?.download_url || '').trim();
+  const isOfficialZip = downloadUrl.startsWith(RELEASE_DOWNLOAD_PREFIX) && downloadUrl.toLowerCase().endsWith('.zip');
+  if (!isOfficialZip) return FALLBACK_RELEASE;
 
   return {
     version: String(manifest?.version || FALLBACK_RELEASE.version),
-    size: Number(manifest?.installer_size_bytes || FALLBACK_RELEASE.size),
-    download_url: installerUrl
+    size: Number(manifest?.size_bytes || FALLBACK_RELEASE.size),
+    download_url: downloadUrl
   };
 };
 

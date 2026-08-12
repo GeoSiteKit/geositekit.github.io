@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Télécharger et installer GeoSiteKit pour AutoCAD sous Windows.">
+  <meta name="description" content="Télécharger et installer la bêta GeoSiteKit pour AutoCAD sous Windows.">
   <meta name="theme-color" content="#ffffff">
   <title>Télécharger GeoSiteKit</title>
   <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
@@ -39,23 +39,23 @@
   <main id="main">
     <section class="download-hero">
       <div class="download-shell">
-        <p class="section-label">Application Windows · AutoCAD</p>
+        <p class="section-label">Application Windows · AutoCAD · Version bêta</p>
         <h1>Télécharger GeoSiteKit</h1>
-        <p class="download-lead">L'installateur configure GeoSiteKit et son intégration AutoCAD automatiquement pour votre compte Windows, sans droits administrateur.</p>
+        <p class="download-lead">Cette bêta s'installe automatiquement pour votre compte Windows après extraction du ZIP, sans droits administrateur.</p>
 
         <div class="download-action-row">
           <a class="button button-primary download-now" id="download-now"
-             href="https://github.com/GeoSiteKit/geositekit-releases/releases/download/v1.7.1/GeoSiteKit-v1.7.1-win64.msi">
-            Télécharger la dernière version
+             href="https://github.com/GeoSiteKit/geositekit-releases/releases/download/v1.7.2-beta.1/GeoSiteKit-v1.7.2-beta.1-win64.zip">
+            Télécharger la bêta ZIP
           </a>
           <div class="release-meta" aria-live="polite">
-            <strong id="release-version">Version stable</strong>
-            <span id="release-size">Installateur MSI · Windows 64 bits</span>
+            <strong id="release-version">Version 1.7.2-beta.1</strong>
+            <span id="release-size">287 Mo · Archive ZIP · Windows 64 bits</span>
           </div>
         </div>
 
         <p class="download-status" id="download-status" role="status">
-          Le téléchargement démarre automatiquement depuis GitHub.
+          Le téléchargement démarre dès que vous cliquez sur le bouton.
         </p>
       </div>
     </section>
@@ -64,27 +64,34 @@
       <div class="download-shell install-layout">
         <div class="install-heading">
           <p class="section-label">Installation</p>
-          <h2 id="install-title">Trois étapes, sans droits administrateur.</h2>
-          <p>Le MSI installe tous les composants dans votre profil Windows et prépare automatiquement la commande GeoSiteKit dans AutoCAD.</p>
+          <h2 id="install-title">Quatre étapes, sans droits administrateur.</h2>
+          <p>GeoSiteKit copie tous ses composants dans votre profil Windows et prépare automatiquement la commande dans AutoCAD.</p>
         </div>
 
         <ol class="install-steps">
           <li>
             <span>01</span>
             <div>
-              <h3>Télécharger le MSI</h3>
-              <p>Cliquez sur le bouton ci-dessus pour récupérer la dernière version depuis le dépôt officiel GeoSiteKit.</p>
+              <h3>Télécharger le ZIP</h3>
+              <p>Cliquez sur le bouton ci-dessus pour récupérer la dernière bêta depuis le dépôt officiel GeoSiteKit.</p>
             </div>
           </li>
           <li>
             <span>02</span>
             <div>
-              <h3>Lancer l'installation</h3>
-              <p>Double-cliquez sur le fichier <code>GeoSiteKit-v1.7.1-win64.msi</code>. L'installation se fait uniquement pour votre compte et ne demande pas de droits administrateur.</p>
+              <h3>Extraire tous les fichiers</h3>
+              <p>Dans l'Explorateur Windows, faites un clic droit sur le ZIP puis choisissez <strong>Extraire tout</strong>. Ne lancez pas l'application directement depuis l'archive compressée.</p>
             </div>
           </li>
           <li>
             <span>03</span>
+            <div>
+              <h3>Installer GeoSiteKit</h3>
+              <p>Fermez AutoCAD, ouvrez le dossier extrait <code>GEOSITEKIT_APP</code>, puis double-cliquez sur <code>GeoSiteKit.exe</code>. L'installation se fait uniquement pour votre compte Windows.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
             <div>
               <h3>Lancer GeoSiteKit dans AutoCAD</h3>
               <p>Redémarrez AutoCAD, ouvrez un dessin enregistré puis saisissez <code>GEOSITEKIT</code>. Aucun chargement manuel avec <code>APPLOAD</code> n'est nécessaire.</p>
@@ -98,9 +105,9 @@
       <div class="download-shell note-grid">
         <div>
           <p class="section-label">À savoir</p>
-          <h2>Sécurité Windows.</h2>
+          <h2>Version bêta.</h2>
         </div>
-        <p>L'installateur ne demande pas de droits administrateur. Comme cette première version MSI n'est pas encore signée, Windows ou la politique de votre entreprise peut toutefois afficher ou bloquer un avertissement de réputation avant son lancement.</p>
+        <p>Cette méthode a été testée sous Windows avec Microsoft Defender et un compte sans droits administrateur. Une politique informatique d'entreprise différente peut néanmoins imposer ses propres restrictions.<br><br>Si vous avez réellement installé la version MSI 1.7.1, désinstallez-la d'abord dans les paramètres Windows avant d'utiliser cette version ZIP.</p>
       </div>
     </section>
   </main>
@@ -116,6 +123,6 @@
     </div>
   </footer>
 
-  <script src="download.js?v=20260811-3"></script>
+  <script src="download.js?v=20260811-4"></script>
 </body>
 </html>
