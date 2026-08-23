@@ -150,6 +150,75 @@ code {
   border-top: 1px solid var(--border);
 }
 
+.unit-section {
+  padding: 88px 0;
+  border-top: 1px solid var(--border);
+  background: #f7f8f5;
+}
+
+.unit-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(460px, 1.28fr);
+  gap: 80px;
+}
+
+.unit-heading h2 {
+  margin-bottom: 18px;
+  font-size: 38px;
+}
+
+.unit-heading > p:last-child,
+.unit-option p,
+.unit-warning {
+  color: var(--muted);
+}
+
+.unit-options {
+  display: grid;
+  gap: 16px;
+}
+
+.unit-option {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.unit-option > span {
+  color: var(--accent-dark);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.unit-option h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.unit-option p,
+.unit-warning {
+  margin: 0;
+}
+
+.unit-option-cancel {
+  background: transparent;
+}
+
+.unit-warning {
+  padding: 18px 20px;
+  border-left: 3px solid var(--accent-dark);
+  background: var(--accent-soft);
+}
+
+.unit-warning strong {
+  color: var(--text);
+}
+
 .install-note h2,
 .install-note p {
   margin-bottom: 0;
@@ -175,7 +244,8 @@ code {
 
   .download-action-row,
   .install-layout,
-  .note-grid {
+  .note-grid,
+  .unit-layout {
     align-items: stretch;
     grid-template-columns: 1fr;
   }
@@ -194,7 +264,8 @@ code {
   }
 
   .install-layout,
-  .note-grid {
+  .note-grid,
+  .unit-layout {
     gap: 34px;
   }
 
@@ -207,7 +278,12 @@ code {
   }
 
   .install-heading h2,
-  .install-note h2 {
+  .install-note h2,
+  .unit-heading h2 {
     font-size: 31px;
+  }
+
+  .unit-section {
+    padding: 72px 0;
   }
 }

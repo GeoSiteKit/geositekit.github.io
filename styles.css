@@ -194,12 +194,6 @@ input {
   outline: none;
 }
 
-.primary-nav .nav-download {
-  color: var(--accent-dark);
-  font-weight: 750;
-}
-
-
 .nav-toggle {
   display: block;
   width: 42px;
@@ -528,6 +522,19 @@ h3 {
 .button-primary:hover,
 .button-primary:focus-visible {
   background: var(--accent-dark);
+}
+
+.button-download-secondary {
+  border-color: #17233c;
+  background: #17233c;
+  color: #ffffff;
+}
+
+.button-download-secondary:hover,
+.button-download-secondary:focus-visible {
+  border-color: #0f172a;
+  background: #0f172a;
+  color: #ffffff;
 }
 
 .button-ghost {

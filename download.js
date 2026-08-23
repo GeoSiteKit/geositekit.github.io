@@ -1,10 +1,11 @@
 const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/GeoSiteKit/geositekit-releases/main/latest-beta.json';
 const RELEASE_DOWNLOAD_PREFIX = 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/';
-const FALLBACK_RELEASE = {
-  version: '1.7.2-beta.1',
-  size: 300781720,
-  download_url: 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/v1.7.2-beta.1/GeoSiteKit-v1.7.2-beta.1-win64.zip'
-};
+const FALLBACK_RELEASE = Object.freeze({
+  version: '',
+  size: 0,
+  download_url: 'https://github.com/GeoSiteKit/geositekit-releases/releases',
+  directDownload: false
+});
 
 const downloadLink = document.querySelector('#download-now');
 const versionLabel = document.querySelector('#release-version');
@@ -47,14 +48,15 @@ const formatSize = (bytes) => {
 };
 
 const normalizeRelease = (manifest) => {
+  const version = String(manifest?.version || '').trim();
   const downloadUrl = String(manifest?.download_url || '').trim();
   const isOfficialZip = downloadUrl.startsWith(RELEASE_DOWNLOAD_PREFIX) && downloadUrl.toLowerCase().endsWith('.zip');
-  if (!isOfficialZip) return FALLBACK_RELEASE;
-
+  if (!version || !isOfficialZip) return FALLBACK_RELEASE;
   return {
-    version: String(manifest?.version || FALLBACK_RELEASE.version),
-    size: Number(manifest?.size_bytes || FALLBACK_RELEASE.size),
-    download_url: downloadUrl
+    version,
+    size: Number(manifest?.size_bytes || manifest?.size || 0),
+    download_url: downloadUrl,
+    directDownload: true
   };
 };
 
@@ -70,11 +72,12 @@ const loadRelease = async () => {
 
 const displayRelease = (release) => {
   if (downloadLink) downloadLink.href = release.download_url;
-  if (versionLabel) versionLabel.textContent = `Version ${release.version}`;
-  if (sizeLabel) sizeLabel.textContent = formatSize(release.size);
+  if (versionLabel) versionLabel.textContent = release.directDownload ? `Version ${release.version}` : 'Version bêta';
+  if (sizeLabel) sizeLabel.textContent = release.directDownload ? formatSize(release.size) : 'Voir la publication GitHub';
 };
 
 const startDownload = (release) => {
+  if (!release.directDownload) return;
   if (statusLabel) statusLabel.textContent = `Téléchargement de la version ${release.version} lancé depuis GitHub.`;
   window.location.assign(release.download_url);
 };
@@ -83,14 +86,22 @@ loadRelease().then((release) => {
   displayRelease(release);
 
   downloadLink?.addEventListener('click', () => {
-    if (statusLabel) statusLabel.textContent = `Téléchargement de la version ${release.version} lancé depuis GitHub.`;
+    if (release.directDownload) {
+      if (statusLabel) statusLabel.textContent = `Téléchargement de la version ${release.version} lancé depuis GitHub.`;
+    } else if (statusLabel) {
+      statusLabel.textContent = 'Le manifeste est temporairement indisponible. La dernière publication GitHub va s\'ouvrir.';
+    }
   });
 
   const params = new URLSearchParams(window.location.search);
-  if (params.get('download') === '1') {
+  if (params.get('download') === '1' && release.directDownload) {
     window.setTimeout(() => startDownload(release), 450);
+  } else if (params.get('download') === '1' && statusLabel) {
+    statusLabel.textContent = 'Le manifeste est temporairement indisponible. Utilisez le bouton pour ouvrir la dernière publication GitHub.';
   } else if (statusLabel) {
-    statusLabel.textContent = 'Le téléchargement démarre dès que vous cliquez sur le bouton.';
+    statusLabel.textContent = release.directDownload
+      ? 'Le téléchargement démarre dès que vous cliquez sur le bouton.'
+      : 'Le manifeste est temporairement indisponible. Le bouton ouvre la dernière publication GitHub.';
   }
 });
 
