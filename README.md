@@ -3,10 +3,9 @@
 Site officiel de GeoSiteKit : de la donnée au projet.
 
 Le site est statique et publié par GitHub Pages depuis la racine de la branche
-`main` du dépôt public `GeoSiteKit/geositekit.github.io`. Cette copie locale
-n'est pas un clone Git : la publication doit synchroniser explicitement les
-fichiers publics vers ce dépôt, puis vérifier `www.geositekit.ch`. Les dossiers
-de génération `_build_ursy/` et `_tools/` restent exclus de la publication.
+`main` du dépôt public `GeoSiteKit/geositekit.github.io`, puis servi sur
+`www.geositekit.ch`. Les dossiers de génération `_build_ursy/` et `_tools/`
+restent exclus de la publication.
 
 ## Structure
 
