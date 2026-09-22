@@ -1,36 +1,25 @@
 # GeoSiteKit
 
-Site officiel de GeoSiteKit : de la donnée au projet.
+Site statique public de GeoSiteKit, publié séparément par GitHub Pages depuis la
+racine de `main` du dépôt `GeoSiteKit/geositekit.github.io`. Les dossiers de
+génération `_build_ursy/` et `_tools/` ne font pas partie de la publication.
 
-Le site est statique et publié par GitHub Pages depuis la racine de la branche
-`main` du dépôt public `GeoSiteKit/geositekit.github.io`, puis servi sur
-`www.geositekit.ch`. Les dossiers de génération `_build_ursy/` et `_tools/`
-restent exclus de la publication.
+## Pages
 
-## Structure
+- `index.html` : accueil et présentation des six modules géographiques.
+- `approche.html` : origine et méthode de lecture de site.
+- `automatisations.html` : catalogue des quatre automatisations livrées, sans téléchargement additionnel fictif.
+- `mode-emploi.html` : guide interactif de l’application ; les commandes métier sont inertes.
+- `telechargement.html` : futur parcours d’installation Setup. Le bouton ne s’active que si `latest-beta.json` fournit un `installer_url` officiel, un `installer_type` égal à `setup_exe` et une empreinte SHA-256 valide.
+- `contact.html` : formulaire de contact.
 
-- `index.html` : page d'accueil et présentation du produit.
-- `mode-emploi.html` : guide interactif de 31 écrans couvrant l'accueil, les
-  paramètres, les six modules et les quatre automatisations fournies.
-  L'interface affiche volontairement l'exemple fictif `Genève · parcelle
-  4590`. Le fond `assets/jonction-orthophoto.png` reste un export officiel SITG
-  de La Jonction, obtenu avec le contour source `24:4151` filtré et surligné
-  (`ortho`, zoom 4, 1600 × 1000 ; © SITG) ; ce numéro source n'est pas présenté
-  comme la référence de l'exemple documentaire. Le fichier
-  `assets/solar-heatmap-demo.png` est un exemple visuel
-  reproductible à grille de 1 m : son générateur accumule 84 positions du
-  soleil sur des masques alignés de bâtiments et de végétation, puis confie la
-  classification et le rendu RGBA au moteur GeoSiteKit. Il reprend donc les
-  six classes et leurs couleurs exactes, sans prétendre constituer un calcul
-  scientifique exécuté sur le site.
-- `guide.js` / `guide.css` : parcours entre les écrans simulés et présentation
-  responsive du guide. Les commandes métier y sont inertes ; seuls les
-  contrôles qui ouvrent un autre écran sont actifs.
-- `telechargement.html` / `download.js` / `download.css` : téléchargement et
-  instructions d'installation, dont le choix d'unité AutoCAD affiché avant le
-  lancement lorsque le DWG n'est pas déclaré en mètres. Sans manifeste valide,
-  le bouton ouvre la dernière publication GitHub au lieu de proposer une
-  version dupliquée et potentiellement périmée.
-- `contact.html` / `contact.js` / `contact.css` : formulaire de contact.
-- `styles.css` / `script.js` : styles communs, accueil et navigation mobile.
-- `assets/` : identité visuelle et scènes utilisées par le site.
+## Vérification locale
+
+```powershell
+python _tools\validate_site.py
+node --check script.js
+node --check guide.js
+node --check download.js
+```
+
+Le validateur vérifie les six pages, la navigation commune, les liens internes et les garde-fous de la page de téléchargement. Une publication GitHub Pages reste une opération distincte de toute modification locale.

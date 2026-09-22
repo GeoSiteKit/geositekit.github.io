@@ -1,160 +1,41 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Télécharger et installer la bêta GeoSiteKit pour AutoCAD sous Windows.">
-  <meta name="theme-color" content="#ffffff">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Installer GeoSiteKit dans AutoCAD sous Windows."><meta name="theme-color" content="#ffffff">
   <title>Télécharger GeoSiteKit</title>
   <link rel="icon" href="assets/geositekit-mark-light.png?v=20260804" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260821b">
-  <link rel="stylesheet" href="download.css">
+  <link rel="stylesheet" href="styles.css?v=20260922a"><link rel="stylesheet" href="download.css?v=20260922a">
 </head>
-<body class="download-page">
-  <a class="skip-link" href="#main">Aller au contenu</a>
-
-  <header class="site-header is-scrolled" id="site-header">
-    <div class="nav-shell">
-      <a class="brand" href="index.html" aria-label="GeoSiteKit, accueil">
-        <span class="brand-mark" aria-hidden="true">
-          <img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="44" height="44">
-        </span>
-        <span>GeoSiteKit</span>
-      </a>
-      <button class="nav-toggle download-nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="mode-emploi.html">Guide d'utilisation</a>
-        <a href="telechargement.html" aria-current="page">Télécharger</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
+<body class="download-page"><a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header is-scrolled" id="site-header"><div class="nav-shell">
+    <a class="brand" href="index.html" aria-label="GeoSiteKit, accueil"><span class="brand-mark" aria-hidden="true"><img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="44" height="44"></span><span>GeoSiteKit</span></a>
+    <button class="nav-toggle download-nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="approche.html">L’approche</a><a href="automatisations.html">Automatisations</a><a href="mode-emploi.html">Guide d'utilisation</a><a href="telechargement.html" aria-current="page">Télécharger</a><a href="contact.html">Contact</a></nav>
+  </div></header>
   <main id="main">
-    <section class="download-hero">
-      <div class="download-shell">
-        <p class="section-label">Application Windows · AutoCAD · Version bêta</p>
-        <h1>Télécharger GeoSiteKit</h1>
-        <p class="download-lead">L'archive contient l'application autonome et son environnement d'exécution. Son premier lancement installe GeoSiteKit pour votre compte et configure automatiquement AutoCAD.</p>
-
-        <div class="download-action-row">
-          <a class="button button-primary download-now" id="download-now"
-             href="https://github.com/GeoSiteKit/geositekit-releases/releases">
-            Télécharger la bêta ZIP
-          </a>
-          <div class="release-meta" aria-live="polite">
-            <strong id="release-version">Version bêta</strong>
-            <span id="release-size">Archive ZIP · Windows 64 bits</span>
-          </div>
-        </div>
-
-        <p class="download-status" id="download-status" role="status">
-          Les informations de téléchargement sont vérifiées auprès de GitHub.
-        </p>
+    <section class="download-hero"><div class="download-shell">
+      <p class="section-label">Application Windows · AutoCAD</p><h1>Télécharger GeoSiteKit</h1>
+      <p class="download-lead">L’installateur Setup pour Windows prépare l’application et son intégration AutoCAD pour le compte utilisateur.</p>
+      <div class="download-action-row">
+        <button class="button button-primary download-now" id="download-now" type="button" disabled aria-describedby="download-status">Installateur Setup en préparation</button>
+        <div class="release-meta" aria-live="polite"><strong id="release-version">Publication à venir</strong><span id="release-size">Installateur signé requis</span></div>
       </div>
-    </section>
-
-    <section class="install-section" aria-labelledby="install-title">
-      <div class="download-shell install-layout">
-        <div class="install-heading">
-          <p class="section-label">Installation</p>
-          <h2 id="install-title">Quatre étapes, sans droits administrateur.</h2>
-          <p>Le ZIP amorce une installation pour votre compte Windows. Extrayez-le entièrement avant de lancer l'application : les composants inclus sont nécessaires à son fonctionnement.</p>
-        </div>
-
-        <ol class="install-steps">
-          <li>
-            <span>01</span>
-            <div>
-              <h3>Extraire l'archive</h3>
-              <p>Ouvrez le fichier ZIP téléchargé, puis extrayez entièrement le dossier <code>GEOSITEKIT_APP</code>.</p>
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <div>
-              <h3>Fermer AutoCAD et lancer GeoSiteKit</h3>
-              <p>Ouvrez le dossier extrait <code>GEOSITEKIT_APP</code>, fermez AutoCAD et AutoCAD LT, puis double-cliquez sur <code>GeoSiteKit.exe</code>. Ne lancez pas l'exécutable depuis l'aperçu du ZIP.</p>
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <div>
-              <h3>Laisser l'installation se terminer</h3>
-              <p>GeoSiteKit vérifie le paquet, installe l'application dans votre profil Windows et configure automatiquement le bundle et le ruban AutoCAD. Aucun déplacement vers <code>C:\</code>, aucun <code>APPLOAD</code> et aucune élévation administrateur ne sont nécessaires.</p>
-            </div>
-          </li>
-          <li>
-            <span>04</span>
-            <div>
-              <h3>Ouvrir GeoSiteKit dans AutoCAD</h3>
-              <p>Rouvrez AutoCAD, enregistrez le dessin DWG, puis utilisez le bouton GeoSiteKit ou saisissez <code>GEOSITEKIT</code> ou <code>GSK</code>. Le contrôle de l'unité intervient avant l'ouverture de l'application.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="unit-section" id="drawing-units" aria-labelledby="drawing-units-title">
-      <div class="download-shell unit-layout">
-        <div class="unit-heading">
-          <p class="section-label">Avant le lancement</p>
-          <h2 id="drawing-units-title">Choisir l'unité du dessin</h2>
-          <p>GeoSiteKit travaille avec des géodonnées LV95 exprimées en mètres. Si le DWG est déclaré dans une autre unité, une fenêtre s'affiche avant l'application et aucun import ne commence sans votre choix.</p>
-        </div>
-
-        <div class="unit-options">
-          <article class="unit-option">
-            <span>01</span>
-            <div>
-              <h3>Conserver l'unité actuelle</h3>
-              <p>Choisissez cette option si le dessin est réellement tracé dans son unité native&nbsp;: par exemple, 10&nbsp;m mesurent 10'000 unités dans un DWG en millimètres. Tous les modules et automatisations adaptent alors leurs dimensions et leur placement aux millimètres, centimètres ou décimètres.</p>
-            </div>
-          </article>
-          <article class="unit-option">
-            <span>02</span>
-            <div>
-              <h3>Travailler en mètres</h3>
-              <p>GeoSiteKit vous demande ensuite si les objets sont déjà dessinés numériquement en mètres malgré une mauvaise déclaration — 10&nbsp;m mesurent 10 unités — ou s'ils sont réellement natifs — 10&nbsp;m mesurent 10'000&nbsp;mm. Il corrige seulement la déclaration dans le premier cas et met les objets à l'échelle dans le second.</p>
-            </div>
-          </article>
-          <article class="unit-option unit-option-cancel">
-            <span>×</span>
-            <div>
-              <h3>Annuler sans modifier</h3>
-              <p>Vous pouvez interrompre le lancement&nbsp;: le dessin reste inchangé, GeoSiteKit ne s'ouvre pas et aucune donnée n'est importée.</p>
-            </div>
-          </article>
-          <p class="unit-warning"><strong>Conseil&nbsp;:</strong> privilégiez les mètres pour un dessin géoréférencé. En millimètres, les coordonnées LV95 peuvent approcher 2,5&nbsp;milliards d'unités, ce qui rend le dessin moins confortable à manipuler.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="install-note">
-      <div class="download-shell note-grid">
-        <div>
-          <p class="section-label">À savoir</p>
-          <h2>Mise à jour et ancienne installation</h2>
-        </div>
-        <p>Ne chargez pas une nouvelle LISP avec <code>APPLOAD</code>. Si une ancienne LISP était ajoutée manuellement à la suite de démarrage, retirez seulement cette ancienne entrée après avoir vérifié la nouvelle installation. Un ancien dossier <code>C:\GEOSITEKIT_APP</code> n'est pas supprimé automatiquement&nbsp;: archivez-le ou retirez-le manuellement une fois la migration confirmée. Les réglages, licences, caches et automatisations personnelles restent conservés dans votre profil utilisateur.</p>
-      </div>
-    </section>
+      <p class="download-status" id="download-status" role="status">L’installateur Setup signé n’est pas encore publié. Le bouton sera activé après vérification d’un manifeste de publication.</p>
+      <p class="release-catalog"><a href="https://github.com/GeoSiteKit/geositekit-releases/releases">Consulter les publications GeoSiteKit</a></p>
+    </div></section>
+    <section class="install-section" aria-labelledby="install-title"><div class="download-shell install-layout">
+      <div class="install-heading"><p class="section-label">Installation</p><h2 id="install-title">Installer GeoSiteKit en quatre étapes.</h2><p>Le parcours ci-dessous sera disponible avec l’installateur Setup signé. Il ne nécessite pas d’installation manuelle de composants dans AutoCAD.</p></div>
+      <ol class="install-steps">
+        <li><span>01</span><div><h3>Télécharger l’installateur</h3><p>Enregistrez le fichier Setup publié pour votre version de GeoSiteKit.</p></div></li>
+        <li><span>02</span><div><h3>Fermer AutoCAD puis lancer Setup</h3><p>Fermez les sessions AutoCAD en cours, puis exécutez le fichier Setup téléchargé.</p></div></li>
+        <li><span>03</span><div><h3>Terminer l’installation</h3><p>Suivez les étapes proposées par Setup. L’installation prépare l’application et son intégration AutoCAD pour votre session Windows.</p></div></li>
+        <li><span>04</span><div><h3>Ouvrir AutoCAD et GeoSiteKit</h3><p>Rouvrez AutoCAD, ouvrez votre dessin puis lancez GeoSiteKit depuis son interface intégrée.</p></div></li>
+      </ol>
+    </div></section>
+    <section class="install-note"><div class="download-shell note-grid"><div><p class="section-label">Service informatique</p><h2>Informations de validation</h2></div><div><p>Une fiche technique sera proposée avec une publication signée. Elle précisera notamment la version, l’éditeur et la signature, l’empreinte SHA-256, les emplacements d’installation, les besoins réseau, les mises à jour, la désinstallation et les données locales.</p><details><summary>Pourquoi cette fiche n’est-elle pas encore disponible&nbsp;?</summary><p>Elle doit correspondre exactement au paquet réellement publié et signé. Aucun document de validation ni lien de téléchargement n’est affiché avant cette publication.</p></details></div></div></section>
+    <section class="install-note assistant-note"><div class="download-shell note-grid"><div><p class="section-label">Assistant</p><h2>Choix et confidentialité</h2></div><p>Après l’installation, l’onglet <strong>Support</strong> offre une aide locale sans clé. Vous choisissez explicitement le mode utilisé : aide locale, IA externe avec votre clé personnelle Gemini API, OpenAI API ou Anthropic API, ou modèle local hors ligne. La clé API est conservée quand vous changez de mode et seul son bouton de suppression l’efface. Un modèle local facultatif se télécharge seulement à votre demande, n’est pas inclus dans l’installateur et son téléchargement ne l’active pas automatiquement. La recherche Web est une option explicite de Gemini API&nbsp;: ses sources sont affichées et elle ne lance jamais une action dans GeoSiteKit.</p></div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="download-shell footer-inner">
-      <a class="footer-brand" href="index.html">
-        <img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="34" height="34">
-        <span>GeoSiteKit</span>
-      </a>
-      <p>De la donnée au projet.</p>
-      <p>© <span id="year"></span> GeoSiteKit</p>
-    </div>
-  </footer>
-
-  <script src="download.js?v=20260823a"></script>
-</body>
-</html>
+  <footer class="site-footer"><div class="download-shell footer-inner"><a class="footer-brand" href="index.html"><img src="assets/geositekit-mark-light.png?v=20260804" alt="" width="34" height="34"><span>GeoSiteKit</span></a><p>De la donnée au projet.</p><p>© <span id="year"></span> GeoSiteKit</p></div></footer>
+  <script src="download.js?v=20260922a"></script>
+</body></html>

@@ -9,6 +9,8 @@ const fileSummary = document.querySelector('#file-summary');
 const formError = document.querySelector('#form-error');
 const submitContact = document.querySelector('#submit-contact');
 const formSuccess = document.querySelector('#form-success');
+const messageInput = document.querySelector('textarea[name="Message"]');
+const machineCodeInput = document.querySelector('#machine-code');
 
 const categories = {
   contact: { label: 'Contact', mailSubject: 'Contact' },
@@ -36,10 +38,17 @@ const updateMailSubject = () => {
 };
 
 const selectCategoryFromUrl = () => {
-  const value = new URLSearchParams(window.location.search).get('type');
+  const params = new URLSearchParams(window.location.search);
+  const value = params.get('type');
   if (!categories[value]) return;
   const target = requestTypes.find((input) => input.value === value);
   if (target) target.checked = true;
+  const subject = params.get('subject');
+  const message = params.get('message');
+  const machineCode = params.get('machine_code');
+  if (subject) subjectInput.value = subject.slice(0, 140);
+  if (message) messageInput.value = message.slice(0, 12000);
+  if (machineCode) machineCodeInput.value = machineCode.slice(0, 160);
 };
 
 const showDeliveryConfirmation = () => {

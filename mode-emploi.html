@@ -20,7 +20,7 @@
       </a>
       <button class="nav-toggle guide-nav-toggle" type="button" aria-expanded="false" aria-controls="guide-site-nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
       <nav class="guide-site-nav" id="guide-site-nav" aria-label="Navigation secondaire">
-        <a href="index.html">Accueil</a><a href="mode-emploi.html" aria-current="page">Guide d'utilisation</a><a href="telechargement.html">Télécharger</a><a href="contact.html">Contact</a>
+        <a href="index.html">Accueil</a><a href="approche.html">L’approche</a><a href="automatisations.html">Automatisations</a><a href="mode-emploi.html" aria-current="page">Guide d'utilisation</a><a href="telechargement.html">Télécharger</a><a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -30,7 +30,7 @@
       <div class="guide-page-shell">
         <p class="section-label">Guide d'utilisation interactif</p>
         <h1>Parcourez chaque fenêtre avant de travailler dans AutoCAD.</h1>
-        <p>Cette reproduction suit l'accueil, les paramètres, chaque module et les automatisations de GeoSiteKit. Les commandes métier sont volontairement inactives&nbsp;: seuls les boutons qui ouvrent un autre écran du guide fonctionnent. Avant cette interface, un DWG qui n'est pas déclaré en mètres déclenche un choix entre l'unité native et une conversion contrôlée. <a href="telechargement.html#drawing-units">Comprendre le contrôle des unités</a>.</p>
+        <p>Cette reproduction suit l'accueil, les paramètres, chaque module et les automatisations de GeoSiteKit. Les commandes métier sont volontairement inactives&nbsp;: seuls les boutons qui ouvrent un autre écran du guide fonctionnent. Retrouvez les étapes d’installation sur la <a href="telechargement.html">page de téléchargement</a>.</p>
       </div>
     </section>
 
@@ -46,6 +46,7 @@
                 <button class="app-nav-button" type="button" data-screen="settings-general">Paramètres</button>
                 <button class="app-nav-button" type="button" data-screen="automation-catalog">Automatisation</button>
                 <button class="app-nav-button" type="button" data-screen="license">Licence</button>
+                <button class="app-nav-button" type="button" data-screen="support">Support</button>
                 <button class="app-nav-button" type="button" data-screen="about">À propos</button>
               </nav>
               <small class="app-signature">Créée et développée par Damien Gavillet</small>
@@ -122,6 +123,11 @@
                 <div class="dialog-actions"><button type="button" disabled>Annuler</button><button class="app-primary" type="button" disabled>OK</button></div>
               </section>
 
+              <section class="guide-screen" id="screen-support" data-guide-screen="support" aria-labelledby="support-title" hidden>
+                <header class="dialog-heading"><div><span class="dialog-eyebrow">Support</span><h2 class="screen-title" id="support-title" tabindex="-1">Votre assistant GeoSiteKit</h2></div><button class="icon-navigation navigation-control" type="button" data-screen="home" aria-label="Retour à l'accueil">⌂</button></header>
+                <div class="dialog-panel form-panel"><p class="panel-help">L’aide locale fonctionne sans clé et sans réseau pour la documentation livrée. Les actions restent confirmées dans l’application.</p><div class="settings-row"><strong>Assistant</strong><span> Aide locale prête</span></div><div class="settings-row"><strong>Paramètres ⚙</strong><span> Gemini API, OpenAI API, Anthropic API ou modèle local téléchargé à la demande.</span></div><div class="settings-row"><strong>Recherche Web Gemini</strong><span> Option explicite, sources visibles, aucune action automatique.</span></div><div class="dialog-actions"><button type="button" disabled>Reporter un bug</button><button type="button" disabled>Envoyer</button></div></div>
+              </section>
+
               <section class="guide-screen" id="screen-home-module-raster" data-guide-screen="home-module-raster" aria-labelledby="home-module-raster-title" hidden>
                 <header class="view-heading"><h2 class="screen-title" id="home-module-raster-title" tabindex="-1">Bienvenue dans GeoSiteKit</h2><p>Accueil · module 1 sur 6 : Plan cadastral image</p></header>
                 <fieldset class="app-group location-group compact-home-location"><legend>1. Localisation</legend><p class="location-ready">Genève · parcelle 4590 localisée. Le guide active les modules progressivement.</p><div class="home-reference-grid"><span>Commune <strong>Genève</strong></span><span>N° Parcelle <strong>4590</strong></span></div></fieldset>
@@ -152,7 +158,7 @@
                 <div class="dialog-panel table-panel">
                   <label class="search-field">Rechercher une couche<input type="search" placeholder="Parcelle, bâtiment…" disabled></label>
                   <div class="data-table vector-table" role="table" aria-label="Couches cadastrales disponibles"><div class="table-head" role="row"><span>Importer</span><span>Couche brute</span><span>Catégorie</span><span>Objets</span><span>État</span></div><div role="row"><span>✓</span><strong>Limites de biens-fonds</strong><span>Parcelles</span><span>42</span><em>Disponible</em></div><div role="row"><span>✓</span><strong>Bâtiments projetés</strong><span>Bâtiments</span><span>18</span><em>Disponible</em></div><div role="row"><span>✓</span><strong>Domaine public</strong><span>Voirie</span><span>11</span><em>Disponible</em></div></div>
-                  <div class="table-actions"><button type="button" disabled>Tout cocher</button><button type="button" disabled>Tout décocher</button><button type="button" disabled>Sauvegarder les états de calques</button><button type="button" disabled>Vérifier sur cette emprise</button><button class="navigation-control" type="button" data-screen="settings-connections">Ouvrir les connexions serveur</button></div>
+                  <p class="simulation-note">Les profils de calques sont propres au serveur. La barre commune aux onglets affiche le profil actif et propose « Charger un profil… » ou « Enregistrer l’état actuel… ». Un brouillon non enregistré reste utilisable pour le prochain import uniquement.</p><div class="table-actions"><button type="button" disabled>Tout cocher</button><button type="button" disabled>Tout décocher</button><button type="button" disabled>Charger un profil…</button><button type="button" disabled>Enregistrer l’état actuel…</button><span>Profil actif : Plan de base · Profil intact</span><button type="button" disabled>Vérifier sur cette emprise</button><button class="navigation-control" type="button" data-screen="settings-connections">Ouvrir les connexions serveur</button></div>
                 </div>
                 <div class="dialog-actions"><button type="button" disabled>Annuler</button><button class="app-primary" type="button" disabled>OK</button></div>
               </section>
@@ -160,7 +166,7 @@
               <section class="guide-screen" id="screen-module-vector-styles" data-guide-screen="module-vector-styles" aria-labelledby="module-vector-styles-title" hidden>
                 <header class="dialog-heading"><div><span class="dialog-eyebrow">Paramètres du cadastre vectoriel</span><h2 class="screen-title" id="module-vector-styles-title" tabindex="-1">Vecteurs cadastraux · Styles des calques</h2></div><button class="icon-navigation navigation-control" type="button" data-screen="home-module-vector" aria-label="Retour aux vecteurs cadastraux sur l'accueil">⌂</button></header>
                 <div class="dialog-tabs" role="tablist" aria-label="Onglets des vecteurs cadastraux"><button type="button" role="tab" aria-selected="false" aria-controls="screen-module-vector-layers" data-screen="module-vector-layers" tabindex="-1">Couches</button><button type="button" role="tab" aria-selected="true" aria-controls="screen-module-vector-styles" data-screen="module-vector-styles">Styles des calques</button></div>
-                <div class="dialog-panel table-panel"><div class="style-table style-table-source" role="table" aria-label="Styles des calques cadastraux"><div class="style-head" role="row"><span>Couche source</span><span>Calque AutoCAD</span><span>Geler</span><span>Tracer</span><span>Couleur</span><span>Type</span><span>Épaisseur</span></div><div role="row"><span>Limites de biens-fonds</span><code>GSK_CAD_PARCELLE</code><span>Non</span><span>Oui</span><span>7</span><span>Continuous</span><span>0.13 mm</span></div><div role="row"><span>Bâtiments projetés</span><code>GSK_CAD_BATIMENT</code><span>Non</span><span>Oui</span><span>30</span><span>Continuous</span><span>0.18 mm</span></div><div role="row"><span>Domaine public</span><code>GSK_CAD_DOMAINE_PUBLIC</code><span>Non</span><span>Oui</span><span>8</span><span>Dashed</span><span>0.13 mm</span></div></div></div>
+                <div class="dialog-panel table-panel"><div class="style-table style-table-source" role="table" aria-label="Styles des calques cadastraux"><div class="style-head" role="row"><span>Couche source</span><span>Calque AutoCAD</span><span>Geler</span><span>Tracer</span><span>Couleur</span><span>Type</span><span>Épaisseur</span></div><div role="row"><span>Limites de biens-fonds</span><code>GSK_CAD_PARCELLE</code><span>Non</span><span>Oui</span><span>7</span><span>Continuous</span><span>0.13 mm</span></div><div role="row"><span>Bâtiments projetés</span><code>GSK_CAD_BATIMENT</code><span>Non</span><span>Oui</span><span>30</span><span>Continuous</span><span>0.18 mm</span></div><div role="row"><span>Domaine public</span><code>GSK_CAD_DOMAINE_PUBLIC</code><span>Non</span><span>Oui</span><span>8</span><span>Dashed</span><span>0.13 mm</span></div></div><div class="table-actions"><button type="button" disabled>Charger un profil…</button><button type="button" disabled>Enregistrer l’état actuel…</button><span>Profil actif : Plan de base · Profil intact</span></div></div>
                 <div class="dialog-actions"><button type="button" disabled>Annuler</button><button class="app-primary" type="button" disabled>OK</button></div>
               </section>
 

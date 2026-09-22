@@ -75,6 +75,21 @@ const tourSteps = [
     ]
   },
   {
+    screen: 'support',
+    label: 'Support · Assistant',
+    kicker: 'Support',
+    title: 'Choisissez une aide locale, personnelle ou hors ligne.',
+    copy: "L'aide documentaire locale ne nécessite ni clé ni réseau. Les fournisseurs API restent des clés personnelles et chaque action dans GeoSiteKit demande une confirmation.",
+    details: [
+      ['Aide locale', "Répond à partir de la documentation versionnée livrée avec l’application, sans envoi de question."],
+      ['Mode utilisé maintenant', "Choisissez explicitement l’aide locale, l’IA externe avec votre clé personnelle, ou le modèle local hors ligne. Le bandeau vert indique ce qui répond réellement à cet instant."],
+      ['Paramètres ⚙', "Permet d’ajouter, remplacer, tester ou supprimer une clé Gemini API, OpenAI API ou Anthropic API. La clé reste enregistrée lorsque vous changez de mode."],
+      ['Modèle local', "Se télécharge seulement à la demande, est vérifié par empreinte et fonctionne ensuite sans clé ni réseau. Le téléchargement n’active pas ce mode automatiquement et sa suppression n’efface pas votre clé API."],
+      ['Recherche Web Gemini', "Doit être activée explicitement. Ses sources sont visibles et elle ne déclenche jamais d’import, de réglage ni d’action automatique."],
+      ['Reporter un bug', "Prépare un rapport depuis l’application ; l’envoi final et le consentement restent sous le contrôle de l’utilisateur."]
+    ]
+  },
+  {
     screen: 'home-module-raster',
     label: 'Accueil · Plan cadastral image',
     kicker: 'Accueil · Module 1/6',
