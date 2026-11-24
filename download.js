@@ -1,3 +1,4 @@
+// This manifest belongs to the website. Existing desktop updaters read latest-beta.json.
 const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/GeoSiteKit/geositekit-releases/main/setup-windows.json';
 const RELEASE_DOWNLOAD_PREFIX = 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/';
 const downloadButton = document.querySelector('#download-now');
@@ -13,7 +14,19 @@ navigation?.addEventListener('click', (event) => { if (event.target instanceof H
 document.addEventListener('click', (event) => { if (event.target instanceof Node && navigation && navToggle && !navigation.contains(event.target) && !navToggle.contains(event.target)) closeNavigation(); });
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeNavigation(); });
 
-const setupRelease = (manifest) => {
+const setupRelease = async (manifest) => {
+  const fields = ['installer_sha256', 'installer_size_bytes', 'installer_type', 'installer_url', 'manifest_schema', 'version'];
+  const { signature, ...payload } = manifest || {};
+  if (signature?.key_id !== 'release-20260911' || signature.algorithm !== 'ed25519' ||
+      Object.keys(payload).sort().join(',') !== fields.join(',') ||
+      payload.manifest_schema !== 'geositekit.release-manifest/v2' ||
+      !Number.isSafeInteger(payload.installer_size_bytes) || payload.installer_size_bytes <= 0 ||
+      !/^\d+\.\d+\.\d+$/.test(payload.version)) return null;
+  const decode = value => Uint8Array.from(atob(value), char => char.charCodeAt(0));
+  const key = await crypto.subtle.importKey('spki',
+    decode('MCowBQYDK2VwAyEA5CwzPPw8+1M3nwb4sC+8VL+snfnWJVHbtTxEfjxArG8='), 'Ed25519', false, ['verify']);
+  const signed = new TextEncoder().encode(JSON.stringify(payload, fields));
+  if (!await crypto.subtle.verify('Ed25519', key, decode(signature.value), signed)) return null;
   const version = String(manifest?.version || '').trim();
   const url = String(manifest?.installer_url || '').trim();
   const type = String(manifest?.installer_type || '').trim().toLowerCase();
