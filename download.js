@@ -48,7 +48,13 @@ const showReadySetup = (release) => {
 };
 
 fetch(RELEASE_MANIFEST_URL, { cache: 'no-store' })
-  .then((response) => response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`)))
+  .then(async (response) => {
+    if (response.ok) return response.json();
+    const api = await fetch('https://api.github.com/repos/GeoSiteKit/geositekit-releases/contents/setup-windows.json?ref=main', {cache: 'no-store'});
+    if (!api.ok) throw new Error('Manifeste indisponible');
+    const file = await api.json();
+    return JSON.parse(atob(file.content));
+  })
   .then(setupRelease)
   .then((release) => { if (release) showReadySetup(release); })
   .catch(() => { /* The disabled HTML fallback remains the authoritative state. */ });
