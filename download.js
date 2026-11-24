@@ -1,4 +1,4 @@
-const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/GeoSiteKit/geositekit-releases/main/latest-beta.json';
+const RELEASE_MANIFEST_URL = 'https://raw.githubusercontent.com/GeoSiteKit/geositekit-releases/main/setup-windows.json';
 const RELEASE_DOWNLOAD_PREFIX = 'https://github.com/GeoSiteKit/geositekit-releases/releases/download/';
 const downloadButton = document.querySelector('#download-now');
 const versionLabel = document.querySelector('#release-version');
@@ -28,8 +28,8 @@ const showReadySetup = (release) => {
   downloadButton.disabled = false;
   downloadButton.textContent = 'Télécharger Setup pour Windows';
   versionLabel.textContent = `Version ${release.version}`;
-  sizeLabel.textContent = release.size > 0 ? `${Math.round(release.size / 1024 / 1024)} Mo · Setup Windows` : 'Setup Windows signé';
-  statusLabel.textContent = 'L’installateur signé est prêt au téléchargement.';
+  sizeLabel.textContent = release.size > 0 ? `${Math.round(release.size / 1024 / 1024)} Mo · Setup Windows` : 'Setup Windows';
+  statusLabel.textContent = 'L’installateur est prêt au téléchargement.';
   downloadButton.addEventListener('click', () => { statusLabel.textContent = `Téléchargement de la version ${release.version} lancé depuis GitHub.`; window.location.assign(release.url); });
   if (new URLSearchParams(window.location.search).get('download') === '1') window.setTimeout(() => downloadButton.click(), 350);
 };
